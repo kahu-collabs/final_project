@@ -21,4 +21,12 @@ User stories for BatMap V2
  - submitting a crime pin sends a report to the crimestoppers website
  
 
-We need to discuss models as a team after lunch :-)
+MODELS (for now; we may want to revisit)
+
+User - uid, provider, name, suburb_id (do we want to limit the user to the suburb they live in? What if their incident occurred elsewhere?)
+
+Report - type_id, description, time_occurred (datetime?), user_id, location, happened_before?, suburb_id
+
+Suburb - name, some kind of location specification
+
+Messages - User, content, title, suburb_id
