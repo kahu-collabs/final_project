@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   root 'jsmaps#main'
 
   get 'auth/:provider/callback', to: 'sessions#create'
@@ -12,6 +10,7 @@ Rails.application.routes.draw do
 	namespace :api do
 		namespace :v1 do
   			resources :reports, except: [:edit, :new]
+        resources :users
 		end
 	end
 end
