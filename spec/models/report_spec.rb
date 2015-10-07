@@ -27,10 +27,10 @@ RSpec.describe Report, type: :model do
     expect(invalid_report).to be_invalid
   end
 
-  # it "user can have multiple report" do
-  #   user = User.reflect_on_association(:report)
-  #   expect(user.macro).to eq(:has_many)
-  # end
+  it "user can have multiple report" do
+    user = User.reflect_on_association(:reports)
+    expect(user.macro).to eq(:has_many)
+  end
 
   it "report belongs to user" do
     report = Report.reflect_on_association(:user)
