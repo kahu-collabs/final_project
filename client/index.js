@@ -1,92 +1,61 @@
-console.log('test')
 var React = require('react')  //main
-console.log('test')
-var BatmapModal = require('./source/batmap-modal')
-console.log('test')
-React.render(<BatmapModal />, document.querySelector('#batmap-modal'))
 
+var makeObjects = require('./source/map/make_objects')
+var getCrime = require('./source/map/getCrimeObject')
+var BatmapModal = require('./source/batmap-modal')
+var testType = require('./source/map/testType')
 
 L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
-var map = L.mapbox.map(document.getElementById('map'), 'mapbox.streets')
-    .setView([-41.29, 174.78], 13);
-
+var map = L.mapbox.map(document.getElementById('map'), 'pettycrime.nj17g72j')
+  .setView([-41.29, 174.78], 13);
+var myLayer = L.mapbox.featureLayer().addTo(map);
 var latlng = []
 
-var click = document.getElementById('click')
+
 map.on('click', function(e) {
-	latlng = [e.latlng.lng, e.latlng.lat]
-	console.log(latlng)
-	$.featherlight($('#example'));
+  latlng = [e.latlng.lng, e.latlng.lat]
+  $.featherlight($('#example'));
+});
+
+function dat_get(){
+	$.get( "api/v1/reports", function( data ) {
+		  $( ".result" ).html( data );
+		  var renderObjects = makeObjects(data)
+		  render(renderObjects);
 	});
+}
+
+function render(data){
+  myLayer.on('layeradd', function(e) {
+    var marker = e.layer,
+        feature = marker.feature;
+   marker.setIcon(L.icon(feature.properties.icon));
+  });
+  myLayer.setGeoJSON(data);
+}
+
+function submitCrime(input){
+  $.ajax({
+    type: "POST",
+    url: "api/v1/reports",
+    data: input,
+    success: dat_get(),
+    dataType: "json"
+  });
+}
 
 
+
+$(document).ready(function(){
+    dat_get()
+})
 
 $('#example').submit(function(event){
 	event.preventDefault();
 	var type = testType(event.target[0].value);
-
-
-	var to_db = {category_type: type, description: event.target[1].value, happened_before: event.target[2].checked, location: latlng.join() };
-
+	var to_db = {category_types_id: type, description: event.target[1].value, happened_before: event.target[2].checked, location: latlng.join() };
 	submitCrime(to_db);
-
-
+	dat_get();
 })
 
-
-function testType(type){
-	if (type == "Joker Gassing"){
-		return 1
-	}
-	else if (type == "Mugging"){
-		return 2
-	}
-	else if (type == "Home Invasion"){
-		return 3
-	}
-	else {return 4}
-}
-
-function submitCrime(input){
-	var data = input.location
-
-	$.ajax({
-	  type: "POST",
-	  url: "api/v1/reports",
-	  data: input,
-	  success: dropPin(data),
-	  dataType: "json"
-	});
-
-	// $post(
-	// 	url: "./api/v1/reports",
-	// 	data: input,
-	// 	success: dropPin(data),
-	// 	)
-}
-
-
-
-function dropPin(coord){
-	var y = L.mapbox.featureLayer({
-	    // this feature is in the GeoJSON format: see geojson.org
-	    // for the full specification
-	    // need to make this object relate to the object in the db somehow???
-	    type: 'Feature',
-	    geometry: {
-	        type: 'Point',
-	        // coordinates here are in longitude, latitude order because
-	        // x, y is the standard for GeoJSON and many formats
-	        coordinates: latlng
-	    },
-	    properties: {
-	        title: 'asdf',
-	        description: 'asdf',
-	        'marker-size': 'large',
-	        'marker-color': '#BE9A6B',
-	        'marker-symbol': 'cafe'
-	    }
-	}).addTo(map);
-	console.log(y)
-
-}
+React.render(<BatmapModal />, document.querySelector('#batmap-modal'))

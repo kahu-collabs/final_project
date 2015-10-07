@@ -1,3 +1,5 @@
 #! /bin/bash
 #make sure you have browserify installed globally with npm install -g browserify
+
 watchify -t reactify index.js ./source/*.js -o ../app/assets/javascripts/bundle.js -d -v
+

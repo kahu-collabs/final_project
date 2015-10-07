@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150930014308) do
     t.integer  "user_id"
   end
 
-  add_index "reports", ["category_types_id"], name: "index_reports_on_category_types_id", using: :btree
   add_index "reports", ["user_id"], name: "index_reports_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

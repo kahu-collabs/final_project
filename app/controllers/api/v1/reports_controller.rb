@@ -40,8 +40,8 @@ class Api::V1::ReportsController < ApplicationController
 
 	private
 
-	def report_params
-		params.require(:report).permit(:description, :happened_before,
-			:additional_info, :location)
-	end
+    def report_params
+        params.permit(:description, :happened_before,
+            :additional_info, :location, :category_types_id)
+    end
 end
