@@ -52,7 +52,10 @@ RSpec.describe Api::V1::ReportsController, type: :controller do
 			double("Report", persisted?: false)
 		}
 		let(:post_report){
-			post :create, report: {description: "Description"}
+			post :create, {category_type: "Type",
+														 description: "Description",
+														 date: "Date",
+														 location: "Location"}
 		}
 
 		describe "user is logged in" do
@@ -74,6 +77,7 @@ RSpec.describe Api::V1::ReportsController, type: :controller do
 
 			it "created report is belongs to current_user" do
 				post_report
+				puts response.body
 				report = JSON.parse(response.body)
 				expect(report["user_id"]).to eq(mock_current_user.id)
 			end
