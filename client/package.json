@@ -1,0 +1,32 @@
+{
+  "name": "Batmap",
+  "version": "1.0.0",
+  "description": "A map to report crimes to Batman",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kahu-collabs/batmap.git"
+  },
+  "author": "EDA Kahu-2015 ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kahu-collabs/batmap/issues"
+  },
+  "homepage": "http://github.com/kahu-collabs/batmap",
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.0",
+    "sinon-chai": "^2.8.0"
+  },
+  "dependencies": {
+    "browserify": "^11.1.0",
+    "jsdom": "^6.5.1",
+    "react": "^0.13.3",
+    "react-modal": "^0.5.0",
+    "reactify": "^1.1.1"
+  }
+}

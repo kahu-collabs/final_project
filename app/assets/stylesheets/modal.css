@@ -1,0 +1,39 @@
+.buttonform {
+	position: absolute;
+	z-index: 20;
+	bottom: -10px;
+  left: 70px;
+}
+
+.buttonform, h1 {
+  font-family: 'Bangers', cursive;
+  color: yellow;
+}
+
+.img-responsive {
+  width: 200px;
+  height: 150px;
+}
+
+.img-close {
+  width: 60px;
+  height: 30px;
+  bottom: 10px;
+  left: 100px;
+  position: absolute;
+}
+
+.bat-img {
+  height: 300px;
+}
+
+form {
+  margin-left: 50px;
+  font-family: 'Bangers', cursive;
+}
+
+.police, p {
+color: yellow;
+  font-family: 'Bangers', cursive;
+}
+

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+    <link href="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+    <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+
+
+    <title>Batmap</title>
+    <meta name="description" content="Batmap">
+    <meta name="author" content="EDA Kahu-2015">
+
+    <link rel="stylesheet" href="styles/index.css?v=1.0">
+    <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
+
+  </head>
+  <body>
+  hello
+    <div id="map"></div>
+
+
+ <form id="example">
+  <label for="crime">What Type Of Crime Is It?</label>
+  <select name="crime" id="crime">
+    <option value="Joker Gassing">Joker Gassing</option>
+    <option value="Mugging">Mugging</option>
+    <option value="Home Invasion">Home Invasion</option>
+    <option value="Car Theft">Car Theft</option>
+  </select>
+
+  <label for="description">In your own words please explain what happened</label>
+  <input type="text-area" name="" id="description">
+
+  <input type="checkbox" name="" id="happened_before"> This has happened before
+  <input type="submit" value="Submit">
+
+
+</form> 
+
+
+
+    <script type="text/javascript" src="bundle.js"></script>
+
+    <script src="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

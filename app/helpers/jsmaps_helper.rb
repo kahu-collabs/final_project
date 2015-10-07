@@ -1,0 +1,2 @@
+module JsmapsHelper
+end
