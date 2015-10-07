@@ -42,6 +42,6 @@ class Api::V1::ReportsController < ApplicationController
 
     def report_params
         params.permit(:description, :happened_before,
-            :additional_info, :location, :category_types_id)
+            :data, :location, :category_type)
     end
 end
