@@ -6,15 +6,12 @@ Rails.application.routes.draw do
 
   delete 'sign_out', to: "sessions#destroy", as: 'sign_out'
 
-
-  resources :suburb
-  resources :message
-
-
 	namespace :api do
 		namespace :v1 do
   			resources :reports, except: [:edit, :new]
         resources :users
+        resources :suburbs
+        resources :messages
 		end
 	end
 end
