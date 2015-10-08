@@ -5,7 +5,7 @@ var getCrime = require('./source/map/getCrimeObject')
 var testType = require('./source/map/testType')
 
 L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
-var map = L.mapbox.map(document.getElementById('map'), 'mapbox.street')
+var map = L.mapbox.map(document.getElementById('map'), 'mapbox.streets')
   .addControl(L.mapbox.geocoderControl('mapbox.places'))
   .setView([-41.29, 174.78], 13);
 var myLayer = L.mapbox.featureLayer().addTo(map);
@@ -53,9 +53,9 @@ $(document).ready(function(){
 $('#example').submit(function(event){
 	event.preventDefault();
 	var type = testType(event.target[0].value);
-	var to_db = {category_types_id: type, description: event.target[1].value, happened_before: event.target[2].checked, location: latlng.join() };
+	var to_db = {category_type: type, description: event.target[1].value, happened_before: event.target[2].checked, location: latlng.join() };
 	submitCrime(to_db);
 	dat_get();
 })
 
-React.render(<BatmapModal />, document.querySelector('#batmap-modal'))
+
