@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Report, type: :model do
-
   it "has a valid factory" do
     report = create(:report)
     expect(report).to be_valid
@@ -36,5 +35,4 @@ RSpec.describe Report, type: :model do
     report = Report.reflect_on_association(:user)
     expect(report.macro).to eq(:belongs_to)
   end
-
 end

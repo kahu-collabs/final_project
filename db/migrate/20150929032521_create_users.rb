@@ -1,6 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
+      t.belongs_to :suburb, index:true
       t.string :provider
       t.string :uid
       t.string :name
