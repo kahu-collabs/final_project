@@ -2,7 +2,6 @@ var React = require('react')  //main
 
 var makeObjects = require('./source/map/make_objects')
 var getCrime = require('./source/map/getCrimeObject')
-var BatmapModal = require('./source/batmap-modal')
 var testType = require('./source/map/testType')
 
 L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
