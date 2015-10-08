@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
     user.uid = auth.uid
     user.name = info.name
     user.save if user.changed?
+    user
   end
 
 end
