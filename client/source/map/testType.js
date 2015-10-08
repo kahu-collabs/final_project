@@ -10,3 +10,6 @@ module.exports = function (type) {
   }
   else {return 4}
 }
+
+
+// this should assign a code value to the types of crime you can see in makeObject

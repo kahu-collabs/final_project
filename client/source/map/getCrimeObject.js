@@ -6,14 +6,8 @@ var prototype = {
      "type": "Point",
    },
    "properties": {
-    "icon": {
-     "iconSize": [50, 50],
-     "iconAnchor": [25, 25],
-     "popupAnchor": [0, -25],
-     "className": "dot"
     }
   }
-}
 
 
 
@@ -34,8 +28,7 @@ module.exports = function(id, title, iconURL, coord, desc) {
     crimeObj.properties.id = id
     crimeObj.properties.title = title
     crimeObj.properties.description = desc
-    crimeObj.properties.icon.iconUrl = iconURL
+    crimeObj.properties.fillColor = marker_colour
     return crimeObj
 }
-
 
