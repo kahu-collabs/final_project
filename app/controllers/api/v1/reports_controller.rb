@@ -16,6 +16,7 @@ class Api::V1::ReportsController < ApplicationController
 			head 403
 		else
 			report = Report.create(report_params.merge(user: user))
+
 			if report.persisted?
 				render json: report
 			else
@@ -41,7 +42,10 @@ class Api::V1::ReportsController < ApplicationController
 	private
 
     def report_params
-        params.permit(:description, :happened_before,
-            :additional_info, :location, :category_types_id)
+        params.permit(:description,
+        							:happened_before,
+            					:date,
+            					:location,
+            					:category_type)
     end
 end
