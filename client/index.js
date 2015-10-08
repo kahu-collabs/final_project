@@ -27,14 +27,15 @@ function dat_get(){
 
 function render(data){
   myLayer.on('layeradd', function(e) {
-    var marker = e.layer,
-        feature = marker.feature;
-   marker.setIcon(L.icon(feature.properties.icon));
+    // var marker = e.layer,
+    //     feature = marker.feature;
+   // marker.setIcon(L.icon(feature.properties.icon));
   });
   myLayer.setGeoJSON(data);
 }
 
 function submitCrime(input){
+  console.log("thing")
   $.ajax({
     type: "POST",
     url: "api/v1/reports",

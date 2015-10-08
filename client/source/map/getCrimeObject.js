@@ -28,7 +28,7 @@ module.exports = function(id, title, marker_colour, coord, desc) {
     crimeObj.properties.id = id
     crimeObj.properties.title = title
     crimeObj.properties.description = desc
-    crimeObj.properties.fillColor = marker_colour
+    crimeObj.properties["marker-color"] = marker_colour
     return crimeObj
 }
 

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20151007225321) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "reports", force: :cascade do |t|
-    t.integer  "category_type"
+    t.string   "category_type"
     t.string   "description"
     t.boolean  "happened_before", default: false
     t.string   "date"
