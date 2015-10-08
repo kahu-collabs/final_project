@@ -1,15 +1,23 @@
 module.exports = function (type) {
-  if (type == "Joker Gassing"){
+  if (type == "Assault/harassment"){
     return 1
   }
-  else if (type == "Mugging"){
+  else if (type == "Vandalism or criminal damage"){
     return 2
   }
-  else if (type == "Home Invasion"){
+  else if (type == "Car theft"){
     return 3
   }
-  else {return 4}
+  else if (type == "Car break-in"){
+    return 4
+  }
+  else if (type == "House burglary"){
+    return 5
+  }
+  else if (type == "Other"){
+    return 6
+  }
+  else { return 7 }
+
 }
 
-
-// this should assign a code value to the types of crime you can see in makeObject
