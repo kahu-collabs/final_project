@@ -5,25 +5,32 @@ module.exports = function(rawData) {
   for(i = 0; i < rawData.length; i++){
     var item = rawData[i]
     var id = item.id
-    var type = item.category_types_id
+    var type = item.category_type
     if(type == 1){
-      var title = "Joker Gassing",
-        img = "assets/joker_pin.png"
+      var title = "Assault/harassment"
+      marker_colour = "#6bd2db"
       } else if(type == 2){
-        var title = "Mugging",
-          img = "assets/batpin.png"
+        var title = "Vandalism or criminal damage",
+        marker_colour = "#0ea7b5"
       } else if(type == 3){
-        var title = "Home invasion",
-          img = "assets/home_invasion.png"
+        var title = "Car theft",
+          marker_colour = "#0c457d"
+      } else if(type == 4){
+        var title = "Car break-in",
+          marker_colour = "#ffbe4f"
+      } else if(type == 5){
+        var title = "House burglary",
+          marker_colour = "#e8702a"
       } else {
-        var title = "Car Theft",
-          img = "assets/car_thieft.png"
+        var title = "Other",
+          marker_colour = "#fe6367"
       }
 
-    x = (item.category_types_id) - 1
+    x = (item.category_type) - 1
 
-    var crime = getCrime(item.id, title, img, item.location, item.description)
+    var crime = getCrime(item.id, title, marker_colour, item.location, item.description)
     geoJson.push(crime)
+    console.log(crime)
   }
   return geoJson
 }
