@@ -5,7 +5,7 @@ var getCrime = require('./source/map/getCrimeObject')
 var testType = require('./source/map/testType')
 
 L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
-var map = L.mapbox.map(document.getElementById('map'), 'mapbox.street')
+var map = L.mapbox.map(document.getElementById('map'), 'mapbox.streets')
   .addControl(L.mapbox.geocoderControl('mapbox.places'))
   .setView([-41.29, 174.78], 13);
 var myLayer = L.mapbox.featureLayer().addTo(map);
@@ -58,4 +58,4 @@ $('#example').submit(function(event){
 	dat_get();
 })
 
-React.render(<BatmapModal />, document.querySelector('#batmap-modal'))
+
