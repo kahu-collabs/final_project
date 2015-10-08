@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Suburb, type: :model do
+
   before(:each) do
     Suburb.destroy_all
   end
+
   describe 'Create attributes in database' do
     it 'create a suburb name' do
       uh = Suburb.create(name:'upper hutt')
