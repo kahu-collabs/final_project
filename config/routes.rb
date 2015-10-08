@@ -13,6 +13,10 @@ Rails.application.routes.draw do
         resources :suburbs
         resources :messages
 		end
+
+    namespace :v2 do
+        resources :reports, except: [:edit, :new]
+    end
 	end
 end
 
