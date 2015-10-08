@@ -25,7 +25,7 @@ RSpec.describe Suburb, type: :model do
       expect(@suburb.users.first).to eq(@michael)
     end
 
-    it 'user belongs to a suburb' do
+    it 'User belongs to a suburb' do
       @suburb = Suburb.create(name: 'upper hutt')
       @michael = User.create(name: 'michael', suburb_id: 1)
 
