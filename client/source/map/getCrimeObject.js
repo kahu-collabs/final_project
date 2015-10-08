@@ -13,7 +13,7 @@ var prototype = {
 
 
 
-module.exports = function(id, title, iconURL, coord, desc) {
+module.exports = function(id, title, marker_colour, coord, desc) {
     var crimeObj = clone(prototype, true)
 
 
