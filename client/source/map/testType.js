@@ -1,4 +1,6 @@
 module.exports = function (type) {
+  //replace with a Map as in make_objects
+
   if (type == "Assault/harassment"){
     return 1
   }
@@ -20,4 +22,3 @@ module.exports = function (type) {
   else { return 7 }
 
 }
-
