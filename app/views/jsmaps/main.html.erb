@@ -1,14 +1,22 @@
  <div id="map"></div>
 
+ <% if !current_user %>
+ <button id="example">
+ <%= link_to 'Login', '/auth/facebook' %>
+ </button>
+ <% else %>
 
  <form id="example">
-  <label for="crime">What Type Of Crime Is It?</label>
-  <select name="crime" id="crime">
-    <option value="Joker Gassing">Joker Gassing</option>
-    <option value="Mugging">Mugging</option>
-    <option value="Home Invasion">Home Invasion</option>
-    <option value="Car Theft">Car Theft</option>
+  <label for="crime">What sort of incident are you reporting?</label>
+  <select name="incident" id="incident">
+    <option value="Assault/harrassment">Assault/harrassment</option>
+    <option value="Vandalism or criminal damage">Vandalism or criminal damage</option>
+    <option value="Car theft">Car theft</option>
+    <option value="Car break-in">Car break-in</option>
+    <option value="House burglary">House burglary</option>
+    <option value="Other">Other</option>
   </select>
+
 
   <label for="description">In your own words please explain what happened</label>
   <input type="text-area" name="" id="description">
@@ -16,7 +24,8 @@
   <input type="checkbox" name="" id="happened_before"> This has happened before
   <input type="submit" value="Submit">
 
-</form> 
+</form>
+<% end %>
 
 <div id='batmap-modal'></div>
 
