@@ -12,8 +12,7 @@ class Api::V1::ReportsController < ApplicationController
 	end
 
 	def create
-		user = current_user
-			report = Report.create(report_params.merge(user: user))
+			report = Report.create(report_params.merge(user: current_user))
 
     if report.persisted?
       render json: report
