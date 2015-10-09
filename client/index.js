@@ -1,8 +1,7 @@
-var React = require('react')  //main
-
 var makeObjects = require('./source/map/make_objects')
 var getCrime = require('./source/map/getCrimeObject')
 var testType = require('./source/map/testType')
+var filter = require('./source/map/filter')
 
 L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
 var map = L.mapbox.map(document.getElementById('map'), 'mapbox.streets')
@@ -32,10 +31,10 @@ function render(data){
    // marker.setIcon(L.icon(feature.properties.icon));
   });
   myLayer.setGeoJSON(data);
+  filter(map, myLayer)
 }
 
 function submitCrime(input){
-  console.log("thing")
   $.ajax({
     type: "POST",
     url: "api/v1/reports",
