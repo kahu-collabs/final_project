@@ -46,7 +46,6 @@ function submitCrime(input){
 }
 
 
-
 $(document).ready(function(){
     dat_get()
 })
