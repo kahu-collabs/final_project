@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V2::ReportsController, type: :controller do
     let(:mock_current_user){
-    user = User.new
+    user = User.new #this should be a create
     user.id = 1
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return (user)
     user
@@ -10,7 +10,7 @@ RSpec.describe Api::V2::ReportsController, type: :controller do
 
   describe "GET all reports" do
     let!(:mock_all){
-      allow(Report).to receive(:all) {[{text:"meow"}]}
+      allow(Report).to receive(:all) {[{text:"meow"}]} #this should be a report object instead of a hash
     }
 
     it "returns 200" do
