@@ -1,5 +1,11 @@
  <div id="map"></div>
 
+ <% if !current_user %>
+ <button id="example">
+ <%= link_to 'Login', '/auth/facebook' %>
+ </button>
+ <% else %>
+
  <form id="example">
   <label for="crime">What sort of incident are you reporting?</label>
   <select name="incident" id="incident">
@@ -19,6 +25,7 @@
   <input type="submit" value="Submit">
 
 </form>
+<% end %>
 
 <div id='batmap-modal'></div>
 
