@@ -7,7 +7,7 @@ class Api::V1::ReportsController < ApplicationController
 	end
 
 	def show
-		@report = Report.find
+		@report = Report.find #which report is this meant to find?
 		render json: @report
 	end
 
@@ -22,8 +22,7 @@ class Api::V1::ReportsController < ApplicationController
   end
 
 	def destroy
-    report = Report.find_by(id: params[:id])
-    if report
+    if report = Report.find_by(id: params[:id])
       report.destroy
       head 200
     else
