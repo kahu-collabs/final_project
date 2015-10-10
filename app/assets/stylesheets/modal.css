@@ -37,3 +37,22 @@ color: yellow;
   font-family: 'Bangers', cursive;
 }
 
+nav {
+  z-index: 10;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+#modals {
+  z-index: 0;
+  position: absolute;
+  display: inline;
+
+}
+
+#map {
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+}
