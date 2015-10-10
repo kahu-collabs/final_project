@@ -15,15 +15,7 @@
 </head>
 
 <body>
-  home
-  <nav>
-   <% if current_user %>
-   Signed in
-   <%= link_to 'Sign Out', '/sign_out', method: :delete %>
-   <% else %>
-   <%= link_to 'Login', '/auth/facebook' %>
-   <% end %>
- </nav>
+
  <%= yield %>
 
  <%= stylesheet_link_tag    'application', media: 'all' %>

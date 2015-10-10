@@ -25,12 +25,7 @@ function dat_get(){
 	});
 }
 
-// function render(data){
-//   myLayer.setGeoJSON(data);
-// }
-
 function submitCrime(input){
-  console.log("thing")
   $.ajax({
     type: "POST",
     url: "api/v1/reports",
