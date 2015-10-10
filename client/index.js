@@ -9,7 +9,6 @@ var map = L.mapbox.map(document.getElementById('map'), 'mapbox.streets')
   .addControl(L.mapbox.geocoderControl('mapbox.places'))
   .setView([-41.29, 174.78], 13);
 var myLayer = L.mapbox.featureLayer().addTo(map);
-var latlng = []
 
 
 map.on('click', function(e) {
@@ -26,6 +25,7 @@ function dat_get(){
 }
 
 function submitCrime(input){
+  // console.log("thing")
   $.ajax({
     type: "POST",
     url: "api/v1/reports",

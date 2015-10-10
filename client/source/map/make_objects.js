@@ -30,7 +30,7 @@ module.exports = function(rawData) {
 
     var crime = getCrime(item.id, title, marker_colour, item.location, item.description)
     geoJson.push(crime)
-    console.log(crime)
+    // console.log(crime)
   }
   return geoJson
 }
