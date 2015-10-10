@@ -48,9 +48,12 @@ $(document).ready(function(){
 
 $('#example').submit(function(event){
 	event.preventDefault();
+  console.log("event ", event.target)
 	var type = testType(event.target[0].value);
-	var to_db = {category_type: type, description: event.target[1].value, happened_before: event.target[2].checked, location: latlng.join() };
-	submitCrime(to_db);
+	var to_db = {category_type: type, description: event.target[1].value, date: event.target[2].value, happened_before: event.target[3].checked, location: latlng.join() };
+  console.log(to_db)
+  console.log()
+  submitCrime(to_db);
 	dat_get();
 })
 

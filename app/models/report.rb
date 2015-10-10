@@ -3,4 +3,5 @@ class Report < ActiveRecord::Base
   validates :category_type, presence: true
   validates :description, presence: true
   validates :location, presence: true
+  validates :date, presence: true
 end
