@@ -46,6 +46,7 @@ class Api::V1::ReportsController < ApplicationController
         							:happened_before,
             					:date,
             					:location,
-            					:category_type)
+            					:category_type,
+            					:suburb_id)
     end
 end

@@ -1,6 +1,6 @@
 var makeObjects = require('./source/map/make_objects')
 var getCrime = require('./source/map/getCrimeObject')
-var testType = require('./source/map/testType')
+// var testType = require('./source/map/testType')
 var filter = require('./source/map/filter')
 
 L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
@@ -48,11 +48,8 @@ $(document).ready(function(){
 
 $('#example').submit(function(event){
 	event.preventDefault();
-  console.log("event ", event.target)
-	var type = testType(event.target[0].value);
-	var to_db = {category_type: type, description: event.target[1].value, date: event.target[2].value, happened_before: event.target[3].checked, location: latlng.join() };
+	var to_db = {category_type: parseInt(event.target[0].value), description: event.target[1].value, date: event.target[2].value, suburb_id: parseInt(event.target[3].value), happened_before: event.target[6].checked, location: latlng.join() };
   console.log(to_db)
-  console.log()
   submitCrime(to_db);
 	dat_get();
 })
