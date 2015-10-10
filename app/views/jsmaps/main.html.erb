@@ -7,7 +7,7 @@
    </button>
    <% else %>
 
-   <form id="example">
+  <form id="example" style="visibility: hidden;">
     <label for="crime">What sort of incident are you reporting?</label>
     <select name="incident" id="incident">
       <option value="Assault/harrassment">Assault/harrassment</option>
@@ -18,7 +18,6 @@
       <option value="Other">Other</option>
     </select>
 
-
     <label for="description">In your own words please explain what happened</label>
     <input type="text-area" name="" id="description">
 
@@ -28,5 +27,6 @@
   </form>
   <% end %>
 </div>
+
 
 
