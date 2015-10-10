@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Suburb.create(name: "Aro Valley")
 Suburb.create(name: "Berhampore")
@@ -51,4 +44,3 @@ Suburb.create(name: "Wadestown")
 Suburb.create(name: "Wellington Central")
 Suburb.create(name: "Wilton")
 Suburb.create(name: "Worser Bay")
-

@@ -1,36 +1,30 @@
-var getCrime = require('./getCrimeObject')
+var clone = require('lodash.clone')
+// make_objects can be re-written and is more readable as a 'typeMap'
+var typeMap = require('./type-map')
+var crimePrototype = {
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+  },
+  "properties": {}
+}
 
 module.exports = function(rawData) {
-  var geoJson = []
-  for(i = 0; i < rawData.length; i++){
-    var item = rawData[i]
-    var id = item.id
-    var type = item.category_type
-    if(type == 1){
-      var title = "Assault/harassment"
-      marker_colour = "#6bd2db"
-      } else if(type == 2){
-        var title = "Vandalism or criminal damage",
-        marker_colour = "#0ea7b5"
-      } else if(type == 3){
-        var title = "Car theft",
-          marker_colour = "#0c457d"
-      } else if(type == 4){
-        var title = "Car break-in",
-          marker_colour = "#ffbe4f"
-      } else if(type == 5){
-        var title = "House burglary",
-          marker_colour = "#e8702a"
-      } else {
-        var title = "Other",
-          marker_colour = "#fe6367"
-      }
+  return rawData.map(function(item) {
+    // if your function returns use a .map rather than creating an array then pushing into it.
+    var type = typeMap[item.category_type] || { title: "Other", marker_colour: "#fe6367" }
+    var coords = item.location.split(",")
+    var crimeObj = clone(crimePrototype)
+    crimeObj.geometry.coordinates = [
+      +coords[0],
+      +coords[1]
+    ]
+    crimeObj.properties.id = item.id
+    crimeObj.properties.title = item.title
+    crimeObj.properties.description = item.description
+    crimeObj.properties["marker-color"] = item.marker_colour
 
-    x = (item.category_type) - 1
+    return crimeObj
+  })
 
-    var crime = getCrime(item.id, title, marker_colour, item.location, item.description)
-    geoJson.push(crime)
-    console.log(crime)
-  }
-  return geoJson
 }
