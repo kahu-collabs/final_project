@@ -20,19 +20,14 @@ map.on('click', function(e) {
 function dat_get(){
 	$.get( "api/v1/reports", function( data ) {
 		  $( ".result" ).html( data );
-		  var renderObjects = makeObjects(data)
-		  render(renderObjects);
+		  var renderObjects = makeObjects(data);
+		  myLayer.setGeoJSON(renderObjects);
 	});
 }
 
-function render(data){
-  myLayer.on('layeradd', function(e) {
-    // var marker = e.layer,
-    //     feature = marker.feature;
-   // marker.setIcon(L.icon(feature.properties.icon));
-  });
-  myLayer.setGeoJSON(data);
-}
+// function render(data){
+//   myLayer.setGeoJSON(data);
+// }
 
 function submitCrime(input){
   console.log("thing")
