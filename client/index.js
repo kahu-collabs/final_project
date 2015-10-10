@@ -3,15 +3,15 @@ var React = require('react')  //main
 var makeObjects = require('./source/map/make_objects')
 var getCrime = require('./source/map/getCrimeObject')
 var testType = require('./source/map/testType')
+var mapThings = require('./source/map/mapThings')
 
-L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
-var map = L.mapbox.map(document.getElementById('map'), 'mapbox.streets')
-  .addControl(L.mapbox.geocoderControl('mapbox.places'))
-  .setView([-41.29, 174.78], 13);
-var myLayer = L.mapbox.featureLayer().addTo(map);
+// L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
+// var map = L.mapbox.map(document.getElementById('map'), 'mapbox.streets')
+//   .addControl(L.mapbox.geocoderControl('mapbox.places'))
+//   .setView([-41.29, 174.78], 13);
+// var myLayer = L.mapbox.featureLayer().addTo(map);
 
-
-map.on('click', function(e) {
+mapThings.map.on('click', function(e) {
   latlng = [e.latlng.lng, e.latlng.lat]
   $.featherlight($('#example'));
 });
@@ -20,7 +20,7 @@ function dat_get(){
 	$.get( "api/v1/reports", function( data ) {
 		  $( ".result" ).html( data );
 		  var renderObjects = makeObjects(data);
-		  myLayer.setGeoJSON(renderObjects);
+		  mapThings.myLayer.setGeoJSON(renderObjects);
 	});
 }
 
