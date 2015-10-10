@@ -1,8 +1,7 @@
-var React = require('react')  //main
-
 var makeObjects = require('./source/map/make_objects')
 var getCrime = require('./source/map/getCrimeObject')
 var testType = require('./source/map/testType')
+var filter = require('./source/map/filter')
 
 L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
 var map = L.mapbox.map(document.getElementById('map'), 'mapbox.streets')
@@ -22,6 +21,7 @@ function dat_get(){
 		  $( ".result" ).html( data );
 		  var renderObjects = makeObjects(data)
 		  render(renderObjects);
+      filter(map, myLayer)
 	});
 }
 
@@ -48,6 +48,7 @@ function submitCrime(input){
 
 $(document).ready(function(){
     dat_get()
+
 })
 
 $('#example').submit(function(event){
@@ -57,5 +58,4 @@ $('#example').submit(function(event){
 	submitCrime(to_db);
 	dat_get();
 })
-
 
