@@ -1,10 +1,11 @@
-<div id="map"></div>
+ <div id="map"></div>
 
-<% if !current_user %>
-  <button id="example">
-<%= link_to 'Login', '/auth/facebook' %>
-  </button>
-<% else %>
+ <div id="modals">
+   <% if !current_user %>
+   <button id="example">
+     <%= link_to 'Login', '/auth/facebook' %>
+   </button>
+   <% else %>
 
   <form id="example" style="visibility: hidden;">
     <label for="crime">What sort of incident are you reporting?</label>
@@ -21,9 +22,11 @@
     <input type="text-area" name="" id="description">
 
     <input type="checkbox" name="" id="happened_before"> This has happened before
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit ">
 
   </form>
-<% end %>
+  <% end %>
+</div>
+
 
 
