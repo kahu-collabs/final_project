@@ -1,35 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
- <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
-    <link href="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.css" type="text/css" rel="stylesheet" />
-    <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+git ch
+  <html>
+    <head>
+      <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+      <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+      <link href="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+      <!-- <link rel="stylesheet" href="stylesheet/jquery.sidr.light.css"> -->
+      <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+      <title>Batmap</title>
+      <meta name="description" content="Batmap">
+      <meta name="author" content="EDA Kahu-2015">
+      <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+      <%= csrf_meta_tags %>
+    </head>
+    <body>
+    <a id="simple-menu" href="#sidr">Toggle menu</a>
+    <div id="sidr"></div>
+      <nav>
+        <% if current_user %>
+          Signed in
+        <%= link_to 'Sign Out', '/sign_out', method: :delete %>
+          <% else %>
+        <%= link_to 'Login', '/auth/facebook' %>
+        <% end %>
+      </nav>
+      <%= yield %>
+      <%= stylesheet_link_tag    'application', media: 'all' %>
+      <%= javascript_include_tag 'application' %>
+      <script src="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+      <script>
+      $(document).ready(function() {
+      $('#simple-menu').sidr();
+      });
+    </script>
+    </body>
+  </html>
 
-    <title>Batmap</title>
-    <meta name="description" content="Batmap">
-    <meta name="author" content="EDA Kahu-2015">
-
-    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-    <%= csrf_meta_tags %>
-</head>
-<body>
-home
- <nav>
-     <% if current_user %>
-       Signed in
-       <%= link_to 'Sign Out', '/sign_out', method: :delete %>
-     <% else %>
-      <%= link_to 'Login', '/auth/facebook' %>
-     <% end %>
-  </nav>
- <%= yield %>
-
-   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-
-    <script src="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-
-</body>
-</html>
