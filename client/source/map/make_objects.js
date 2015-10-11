@@ -15,18 +15,18 @@ module.exports = function(rawData) {
     console.log("item", item)
     var category = parseInt(item.category_type)
     var type = typeMap[category] || { title: "Other", marker_colour: "#fe6367" }
-    console.log("type", type)
     var coords = item.location.split(",")
     var crimeObj = clone(crimePrototype, true)
     crimeObj.geometry.coordinates = [
-      +coords[0],
-      +coords[1]
+      item.lng,
+      item.lat
     ]
     crimeObj.properties.id = item.id
     crimeObj.properties.title = type.title
     crimeObj.properties.description = item.description
     crimeObj.properties["marker-color"] = type.marker_colour
     return crimeObj
+
   })
 
 }

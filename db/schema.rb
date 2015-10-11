@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20151007225321) do
 
   create_table "reports", force: :cascade do |t|
     t.string   "category_type"
+    t.float    "lat"
+    t.float    "lng"
     t.integer  "suburb_id"
     t.string   "description"
     t.boolean  "happened_before", default: false

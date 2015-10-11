@@ -38,7 +38,9 @@ class Api::V1::ReportsController < ApplicationController
             					:date,
             					:location,
             					:category_type,
-            					:suburb_id)
+            					:suburb_id,
+                      :lat,
+                      :lng)
     end
 
     def require_current_user

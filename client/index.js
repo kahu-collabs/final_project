@@ -8,9 +8,18 @@ var map = L.mapbox.map(document.getElementById('map'), 'mapbox.streets')
   .setView([-41.29, 174.78], 13);
 var myLayer = L.mapbox.featureLayer().addTo(map);
 var latlng = []
+var lat = 0
+var lng = 0
 
+
+// map.on('click', function(e) {
+//   latlng = [e.latlng.lng, e.latlng.lat]
+//   $.featherlight($('#example'));
+// });
 
 map.on('click', function(e) {
+  lat = e.latlng.lat
+  lng = e.latlng.lng
   latlng = [e.latlng.lng, e.latlng.lat]
   $.featherlight($('#example'));
 });
@@ -48,7 +57,7 @@ $(document).ready(function(){
 
 $('#example').submit(function(event){
 	event.preventDefault();
-	var to_db = {category_type: parseInt(event.target[0].value), description: event.target[1].value, date: event.target[2].value, suburb_id: parseInt(event.target[3].value), happened_before: event.target[6].checked, location: latlng.join() };
+	var to_db = {category_type: parseInt(event.target[0].value), description: event.target[1].value, date: event.target[2].value, suburb_id: parseInt(event.target[3].value), happened_before: event.target[6].checked, lat: lat, lng: lng, location: latlng.join() };
   console.log(to_db)
   submitCrime(to_db);
 	dat_get();

@@ -9,6 +9,7 @@ gem 'omniauth-facebook'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'geokit-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
