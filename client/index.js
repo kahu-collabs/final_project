@@ -19,6 +19,7 @@ function dat_get(){
 	$.get( "api/v1/reports", function( data ) {
 		  $( ".result" ).html( data );
 		  var renderObjects = makeObjects(data)
+      console.log("rendering ", renderObjects)
 		  render(renderObjects);
       filter(map, myLayer)
 	});
