@@ -1,8 +1,14 @@
 [![Stories in Ready](https://badge.waffle.io/kahu-collabs/final_project.png?label=ready&title=Ready)](https://waffle.io/kahu-collabs/final_project)
 # batmap
 
+###Code quality
 
-User stories for BatMap V2
+`cd client`
+`npm install`
+`node_modules/.bin/eslint source/* index.js`
+
+
+###User stories for BatMap V2
 
  - a user can log in with facebook.
  - a user can report a crime/multiple crimes
