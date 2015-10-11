@@ -18,5 +18,8 @@ module.exports = {
   5: {
     title: "House burglary",
     marker_colour: "#e8702a"
+  },
+  6:{
+    title: "Other",
+    marker_colour: "#fe6367" }
   }
-}

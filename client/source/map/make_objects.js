@@ -14,7 +14,7 @@ module.exports = function(rawData) {
     // if your function returns use a .map rather than creating an array then pushing into it.
     console.log("item", item)
     var category = parseInt(item.category_type)
-    var type = typeMap[category] || { title: "Other", marker_colour: "#fe6367" }
+    var type = typeMap[category]
     var crimeObj = clone(crimePrototype, true)
     crimeObj.geometry.coordinates = [
       item.lng,
