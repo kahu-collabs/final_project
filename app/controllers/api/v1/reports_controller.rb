@@ -7,7 +7,7 @@ class Api::V1::ReportsController < ApplicationController
 	end
 
 	def show
-		@report = Report.find #which report is this meant to find?
+		@report = Report.find
 		render json: @report
 	end
 
@@ -29,6 +29,11 @@ class Api::V1::ReportsController < ApplicationController
       head 400
     end
 	end
+
+  def nearby(params)
+    @reports = Report.find(:all, :origin =>params, :within=>10)
+    render json: @reports
+  end
 
 	private
 

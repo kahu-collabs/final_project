@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
 	namespace :api do
 		namespace :v1 do
+        get '/reports' => 'reports#nearby'
   			resources :reports, except: [:edit, :new]
         resources :users
         resources :suburbs

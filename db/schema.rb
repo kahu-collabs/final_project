@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20151007225321) do
     t.boolean  "happened_before", default: false
     t.string   "date"
     t.integer  "user_id"
-    t.string   "location"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
