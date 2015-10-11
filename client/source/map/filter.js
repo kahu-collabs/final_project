@@ -5,7 +5,6 @@ module.exports = function (map, layer) {
 
   var typesObj = {}, types = [];
   var features = layer.getGeoJSON();
-  console.log(features)
   for (var i = 0; i < features.length; i++) {
     typesObj[features[i].properties['title']] = true;
   }

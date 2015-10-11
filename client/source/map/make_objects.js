@@ -12,7 +12,6 @@ var crimePrototype = {
 module.exports = function(rawData) {
   return rawData.map(function(item) {
     // if your function returns use a .map rather than creating an array then pushing into it.
-    console.log("item", item)
     var category = parseInt(item.category_type)
     var type = typeMap[category]
     var crimeObj = clone(crimePrototype, true)

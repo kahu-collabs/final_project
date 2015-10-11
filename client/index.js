@@ -1,3 +1,5 @@
+require('handlebars');
+
 var makeObjects = require('./source/map/make_objects')
 var filter = require('./source/map/filter')
 var dat_nearby = require('./source/slidebar/show_within')
@@ -11,12 +13,16 @@ var myLayer = L.mapbox.featureLayer().addTo(map);
 var lat = 0
 var lng = 0
 
+
 map.on('click', function(e) {
   lat = e.latlng.lat
   lng = e.latlng.lng
-  console.log(lat,lng)
-  $.featherlight($('#example'));
+  $("#submit").show()
 });
+
+
+
+function drop_pin_view_events(){}
 
 function dat_get(){
 	$.get( "api/v1/reports", function( data ) {
@@ -43,7 +49,8 @@ function render(data){
 }
 
 function submitCrime(input){
-  console.log("thing")
+
+
   $.ajax({
     type: "POST",
     url: "api/v1/reports",
@@ -59,8 +66,9 @@ $(document).ready(function(){
 
 })
 
-$('#example').submit(function(event){
-	event.preventDefault();
+$('#sidr').submit(function(event){
+  event.preventDefault();
+  console.log("submitting")
 	var to_db = {category_type: parseInt(event.target[0].value), description: event.target[1].value, date: event.target[2].value, suburb_id: parseInt(event.target[3].value), happened_before: event.target[6].checked, lat: lat, lng: lng };
   console.log(to_db)
   submitCrime(to_db);
