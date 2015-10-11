@@ -7,7 +7,7 @@ class Api::V1::ReportsController < ApplicationController
 	end
 
 	def show
-		@report = Report.find
+		@report = Report.find[params[:id]]
 		render json: @report
 	end
 
@@ -30,8 +30,8 @@ class Api::V1::ReportsController < ApplicationController
     end
 	end
 
-  def nearby(params)
-    @reports = Report.find(:all, :origin =>params, :within=>10)
+  def nearby
+    @reports = Report.within(params[:within], :origin => params[:origin])
     render json: @reports
   end
 
@@ -45,7 +45,9 @@ class Api::V1::ReportsController < ApplicationController
             					:category_type,
             					:suburb_id,
                       :lat,
-                      :lng)
+                      :lng,
+                      :origin,
+                      :within)
     end
 
     def require_current_user

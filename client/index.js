@@ -13,17 +13,25 @@ var lng = 0
 map.on('click', function(e) {
   lat = e.latlng.lat
   lng = e.latlng.lng
+  console.log(lat,lng)
   $.featherlight($('#example'));
+  dat_nearby(1)
 });
 
 function dat_get(){
 	$.get( "api/v1/reports", function( data ) {
 		  $( ".result" ).html( data );
 		  var renderObjects = makeObjects(data)
-      console.log("rendering ", renderObjects)
 		  render(renderObjects);
       filter(map, myLayer)
 	});
+}
+
+function dat_nearby(radius){
+  $.get( "api/v1/nearby",  {within: radius, origin: [lat, lng]}, function( data ) {
+      $( ".result" ).html( data );
+  console.log("data", data)
+  });
 }
 
 function render(data){
