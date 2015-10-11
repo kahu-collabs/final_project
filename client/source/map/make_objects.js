@@ -21,6 +21,7 @@ module.exports = function(rawData) {
       item.lat
     ]
     crimeObj.properties.id = item.id
+    crimeObj.properties.date = item.date
     crimeObj.properties.title = type.title
     crimeObj.properties.description = item.description
     crimeObj.properties["marker-color"] = type.marker_colour

@@ -28,6 +28,17 @@ function dat_get(){
 }
 
 function render(data){
+  myLayer.on('layeradd', function(e){
+    var marker = e.layer,
+        feature = marker.feature;
+
+    var popupContent = '<p>' + feature.properties.date +'<p>' + feature.properties.description + '</p>';
+
+        marker.bindPopup(popupContent,{
+        closeButton: false,
+        minWidth: 320
+    });
+  })
   myLayer.setGeoJSON(data);
 }
 
