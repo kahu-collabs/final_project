@@ -1,5 +1,6 @@
 var makeObjects = require('./source/map/make_objects')
 var filter = require('./source/map/filter')
+var dat_nearby = require('./source/slidebar/show_within')
 
 
 L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
@@ -15,7 +16,6 @@ map.on('click', function(e) {
   lng = e.latlng.lng
   console.log(lat,lng)
   $.featherlight($('#example'));
-  dat_nearby(1)
 });
 
 function dat_get(){
@@ -25,13 +25,6 @@ function dat_get(){
 		  render(renderObjects);
       filter(map, myLayer)
 	});
-}
-
-function dat_nearby(radius){
-  $.get( "api/v1/nearby",  {within: radius, origin: [lat, lng]}, function( data ) {
-      $( ".result" ).html( data );
-  console.log("data", data)
-  });
 }
 
 function render(data){
@@ -62,4 +55,11 @@ $('#example').submit(function(event){
   submitCrime(to_db);
 	dat_get();
 })
+
+
+$("#simple-menu").click(function(){
+  dat_nearby(1, lat, lng)
+})
+
+
 
