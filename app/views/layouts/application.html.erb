@@ -60,9 +60,9 @@
 <script id="example-template" type="text/x-handlebars-template">
   {{#each these}}
   <div class="entry">
-    <h1>{{this.title}}</h1>
+    <h1>{{this.properties.title}}</h1>
     <div class="body">
-      {{this.description}}
+      {{this.properties.description}}
     </div>
   </div>
   {{/each}}

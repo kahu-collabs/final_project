@@ -74,7 +74,6 @@ $('#viewform').submit(function(event){
   event.preventDefault();
   radius = event.target[0].value
   dat_nearby(radius, lat, lng)
-  render_it()
 })
 
 

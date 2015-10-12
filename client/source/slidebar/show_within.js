@@ -18,6 +18,7 @@ function bar_ready(){
 bar_ready()
 
 function make_reports(data){
+
   console.log(data)
   render_it(data)
 }
