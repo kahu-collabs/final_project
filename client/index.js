@@ -66,14 +66,19 @@ $(document).ready(function(){
 
 })
 
-$('#sidr').submit(function(event){
+$('#reportform').submit(function(event){
   event.preventDefault();
-  console.log("submitting")
 	var to_db = {category_type: parseInt(event.target[0].value), description: event.target[1].value, date: event.target[2].value, suburb_id: parseInt(event.target[3].value), happened_before: event.target[6].checked, lat: lat, lng: lng };
-  console.log(to_db)
   submitCrime(to_db);
 	dat_get();
 })
+
+$('#viewform').submit(function(event){
+  event.preventDefault();
+  radius = event.target[0].value
+  dat_nearby(radius, lat, lng)
+})
+
 
 
 
