@@ -4,6 +4,6 @@ FactoryGirl.define do
     description Faker::Lorem.sentence
     happened_before false
     date Faker::Date.between(2.days.ago, Date.today)
-    location Faker::Lorem.word
+    lat Faker::Number.decimal(l_digits =2, r_digits = 4)
   end
 end

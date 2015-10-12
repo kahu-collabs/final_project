@@ -12,11 +12,6 @@ RSpec.describe Suburb, type: :model do
 
       expect(uh.name).to eq('upper hutt')
     end
-    it 'create a suburb location' do
-      lat_lng = Suburb.create(location: '22.351, 54.4321')
-
-      expect(lat_lng.location).to eq('22.351, 54.4321')
-    end
   end
 
   describe 'Suburb has many users' do
