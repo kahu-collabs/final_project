@@ -27,9 +27,7 @@ function drop_pin_view_events(){}
 function dat_get(){
 	$.get( "api/v1/reports", function( data ) {
 		  $( ".result" ).html( data );
-      console.log(data)
 		  var renderObjects = makeObjects(data)
-      console.log(data)
 		  render(renderObjects);
       filter(map, myLayer)
 	});
@@ -70,9 +68,7 @@ $(document).ready(function(){
 
 $('#sidr').submit(function(event){
   event.preventDefault();
-  console.log("submitting")
 	var to_db = {category_type: parseInt(event.target[0].value), description: event.target[1].value, date: event.target[2].value, suburb_id: parseInt(event.target[3].value), happened_before: event.target[6].checked, lat: lat, lng: lng };
-  console.log(to_db)
   submitCrime(to_db);
 	dat_get();
 })
