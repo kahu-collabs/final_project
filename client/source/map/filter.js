@@ -1,18 +1,20 @@
 module.exports = function (map, layer) {
-  console.log(layer.getGeoJSON())
+
   var filters = document.getElementById('filters');
+  filters.innerHTML = "";
 
   var typesObj = {}, types = [];
   var features = layer.getGeoJSON();
-  console.log(features)
   for (var i = 0; i < features.length; i++) {
     typesObj[features[i].properties['title']] = true;
   }
   for (var k in typesObj) types.push(k);
 
+
   var checkboxes = [];
 
   for (var i = 0; i < types.length; i++) {
+
     var item = filters.appendChild(document.createElement('div'));
     var checkbox = item.appendChild(document.createElement('input'));
     var label = item.appendChild(document.createElement('label'));

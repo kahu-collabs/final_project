@@ -1,20 +1,32 @@
-git ch
   <html>
     <head>
       <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
       <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
-      <link href="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+     <!--  <link href="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.css" type="text/css" rel="stylesheet" /> -->
       <!-- <link rel="stylesheet" href="stylesheet/jquery.sidr.light.css"> -->
       <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
       <title>Batmap</title>
       <meta name="description" content="Batmap">
       <meta name="author" content="EDA Kahu-2015">
       <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.js"></script>
       <%= csrf_meta_tags %>
     </head>
     <body>
     <a id="simple-menu" href="#sidr">Toggle menu</a>
-    <div id="sidr"></div>
+    <div id="sidr">
+      <div id="buttonsmenu">
+        <button id="report-button">Report</button>
+        <button id="view-button">View</button>
+      </div>
+
+      <div id="viewform">
+      </div>
+
+    <script id="entry-template" type="text/x-handlebars-template">
+
+    </script>
+    </div>
       <nav>
         <% if current_user %>
           Signed in
