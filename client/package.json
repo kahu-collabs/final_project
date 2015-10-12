@@ -4,7 +4,8 @@
   "description": "A map to report crimes to Batman",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests"
+    "test": "mocha tests",
+    "tape": "browserify ./tests/*.js | tap-closer | smokestack | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -20,13 +21,15 @@
     "chai": "^3.3.0",
     "mocha": "^2.3.3",
     "sinon": "^1.17.0",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "tape": "^4.2.1"
   },
   "dependencies": {
     "browserify": "^11.1.0",
     "handlebars": "^4.0.3",
     "jsdom": "^6.5.1",
     "lodash.clone": "^3.0.3",
+    "lodash.foreach": "^3.0.3",
     "react": "^0.13.3",
     "react-modal": "^0.5.0",
     "reactify": "^1.1.1"
