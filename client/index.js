@@ -78,7 +78,7 @@ $('#communityposts').submit(function(event){
   event.preventDefault()
   var to_db = {suburb_id: parseInt(event.target[0].value), body: event.target[1].value}
   submitPost(to_db)
-  // getPosts()
+  event.target[1].value = ''
 })
 
 function submitPost(input){
