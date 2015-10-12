@@ -8,6 +8,14 @@ module.exports = function (radius, lat, lng){
   });
 }
 
+function bar_ready(){
+  $('#viewform').hide()
+  $('#reportform').hide()
+  $("#reportsubmit").hide()
+  $("#viewsubmit").hide()
+}
+
+bar_ready()
 
 function make_reports(data){
   for (i = 0; i < data.length; i++) {
