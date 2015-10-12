@@ -67,6 +67,7 @@ var viewForm = "<form id='view_form'>"
 + '<label for="description">View all incidents within a'
 +  '<input type="text-area" name="" id="radius"> kilometer radius of your pin drop</label>'
 +  '<input type="submit" value="Submit" id="submit">'
+
 + '</form>'
 
 $("#report-button").click(function(){

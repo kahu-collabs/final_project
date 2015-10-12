@@ -30,18 +30,19 @@ ActiveRecord::Schema.define(version: 20151007225321) do
 
   create_table "reports", force: :cascade do |t|
     t.string   "category_type"
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "suburb_id"
     t.string   "description"
     t.boolean  "happened_before", default: false
     t.string   "date"
     t.integer  "user_id"
-    t.string   "location"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
 
   create_table "suburbs", force: :cascade do |t|
     t.string   "name"
-    t.string   "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

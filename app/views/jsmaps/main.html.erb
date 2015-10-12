@@ -1,35 +1,17 @@
+
  <nav id='filters' class='filter-ui'></nav>
  <div id="map"></div>
 
-
- <div id="modals">
-   <% if !current_user %>
-   <button id="example">
-     <%= link_to 'Login', '/auth/facebook' %>
-   </button>
-   <% else %>
-
-  <form id="example" style="visibility: hidden;">
-    <label for="crime">What sort of incident are you reporting?</label>
-    <select name="incident" id="incident">
-      <option value="Assault/harrassment">Assault/harrassment</option>
-      <option value="Vandalism or criminal damage">Vandalism or criminal damage</option>
-      <option value="Car theft">Car theft</option>
-      <option value="Car break-in">Car break-in</option>
-      <option value="House burglary">House burglary</option>
-      <option value="Other">Other</option>
-    </select>
-
-    <label for="description">In your own words please explain what happened</label>
-    <input type="text-area" name="" id="description">
+ <% if !current_user %>
+  <button id="example">
+    <%= link_to 'Login', '/auth/facebook' %>
+  </button>
+ <% else %>
 
 
-    <input type="checkbox" name="" id="happened_before"> This has happened before
-    <input type="submit" value="Submit ">
 
-  </form>
   <% end %>
-</div>
+
 
 
 

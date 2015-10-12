@@ -16,14 +16,14 @@ RSpec.describe Report, type: :model do
     expect(invalid_report).to be_invalid
   end
 
-  it "is invalid without date" do
+  xit "is invalid without date" do
     invalid_report = build(:report, date: nil)
     expect(invalid_report).to be_invalid
   end
 
-  it "is invalid without location" do
-    invalid_report = build(:report, location: nil)
-    expect(invalid_report).to be_invalid
+  it "it has a latitude field" do
+    report = build(:report, lat: 12.2345)
+    expect(report).to be_valid
   end
 
   it "user can have multiple report" do
