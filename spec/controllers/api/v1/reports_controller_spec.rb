@@ -55,7 +55,7 @@ RSpec.describe Api::V1::ReportsController, type: :controller do
 			post :create, {category_type: "Type",
 														 description: "Description",
 														 date: "Date",
-														 location: "Location"}
+														}
 		}
 
 		describe "user is logged in" do

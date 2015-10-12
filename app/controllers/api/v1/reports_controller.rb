@@ -7,7 +7,7 @@ class Api::V1::ReportsController < ApplicationController
 	end
 
 	def show
-		@report = Report.find[params[:id]]
+		@report = Report.find(params[:id])
 		render json: @report
 	end
 
