@@ -11,18 +11,19 @@
     <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.js"></script>
     <%= csrf_meta_tags %>
+
   </head>
   <body>
     <a id="simple-menu" href="#sidr">Toggle menu</a>
     <div id="sidr">
       <div id="buttonsmenu">
-        <button id="report-button">Report</button>
+        <button id="report-button">Report</button>      
         <button id="view-button">View</button>
       </div>
 
+      <button id="fb-login">Login with facebook</button>
 
       <form id="reportform">
-      <% if current_user %>
         <label for="crime">What sort of incident are you reporting?</label>
         <select name="incident" id="incident">
           <option value="1">Assault/harrassment</option>
@@ -49,9 +50,6 @@
     <input type="checkbox" name="" id="happened_before"> This has happened before<br></br>
     <p>Click the map where you would like to drop your pin</p>
     <input type="submit" value="Submit" id="reportsubmit">
-    <% else %>
-    <%= link_to 'Login', '/auth/facebook' %>
-    <% end %>
   </form>
 
   <form id="viewform">
@@ -81,6 +79,7 @@
     $('#simple-menu').sidr();
   });
 </script>
+
 </body>
 </html>
 
