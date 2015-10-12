@@ -12,18 +12,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'geokit-rails'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+	gem 'selenium-webdriver'
+	gem 'capybara'
+	gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'capybara'
-end
-
-group :development, :test do
   gem 'byebug'
-end
-
-group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+
 
