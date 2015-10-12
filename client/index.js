@@ -27,7 +27,9 @@ function drop_pin_view_events(){}
 function dat_get(){
 	$.get( "api/v1/reports", function( data ) {
 		  $( ".result" ).html( data );
+      console.log(data)
 		  var renderObjects = makeObjects(data)
+      console.log(data)
 		  render(renderObjects);
       filter(map, myLayer)
 	});
