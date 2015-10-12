@@ -1,5 +1,6 @@
 require('handlebars');
 var render_it = require('./handlebars_content')
+var get_type = require('./../map/get_title')
 
 module.exports = function (radius, lat, lng){
   $.get( "api/v1/nearby",  {within: radius, origin: [lat, lng]}, function( data ) {
@@ -24,14 +25,7 @@ function make_reports(data){
 }
 
 
-var get_type = {
-  1:"Assault/harrassment",
-  2:"Vandalism or criminal damage",
-  3:"Car theft",
-  4:"Car break-in",
-  5:"House burglary",
-  6:"Other"
-}
+
 
 
 $("#report-button").click(function(){
