@@ -9,4 +9,8 @@ class Report < ActiveRecord::Base
   validates :category_type, presence: true
   validates :description, presence: true
   validates :date, presence: true
+
+  def time_diff
+    return ((time_2 - time_1) / 3600).round
+  end
 end
