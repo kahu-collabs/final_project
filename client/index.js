@@ -76,9 +76,5 @@ $('#sidr').submit(function(event){
 })
 
 
-$("#simple-menu").click(function(){
-  dat_nearby(1, lat, lng)
-})
-
 
 

@@ -50,11 +50,6 @@ var reportForm = '<form id="report_form">' +
 + '<label for="date">On what date did the incident occur?</label>'
 + '<input type="date" name="" id="date"><br></br>'
 
-+  '<label for="crime">Please tag this incident with a suburb</label>'
-+  '<select name="incident" id="incident">'
-+    '<% @suburbs.each do |suburb| %>'
-+      '<option value="<%= suburb.id %>"><%= suburb.name %></option>'
-+    '<%end%>'
 +  '</select><br></br>'
 +  '<label for="time">Select a time between these hours of when it happend</label>'
 +  '<select name="time" id="time">'
@@ -68,7 +63,17 @@ var reportForm = '<form id="report_form">' +
 +  '<input type="submit" value="Submit" id="submit">'
 + '</form>'
 
+var viewForm = "<form id='view_form'>"
++ '<label for="description">View all incidents within a'
++  '<input type="text-area" name="" id="radius"> kilometer radius of your pin drop</label>'
++ '</form>'
+
 $("#report-button").click(function(){
-  $('#sidr').append(reportForm)
+  $('#viewform').html(reportForm)
+  $("#submit").hide()
+})
+
+$("#view-button").click(function(){
+  $('#viewform').html(viewForm)
   $("#submit").hide()
 })
