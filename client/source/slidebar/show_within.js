@@ -28,16 +28,37 @@ function make_reports(data){
 
 
 
-$("#report-button").click(function(){
-  $('#viewform').hide()
-  $('#reportform').show()
-  $("#reportsubmit").hide()
-})
+function sessionCheck(){
+    return $.get("api/v1/session_check")
+  }
 
-$("#view-button").click(function(){
-  $('#reportform').hide()
-  $('#viewform').show()
-  $("#viewsubmit").hide()
-})
+function sideBarMenu(loggedIn){
+  $('#fb-login').hide()
+  $("#report-button").click(function(){
+    if (loggedIn) {
+      $('#reportform').show()
+      $('#fb-login').hide()
 
+    } else{
+      $('#reportform').hide()
+      $('#fb-login').show()
+    }
 
+    $('#viewform').hide()  
+    $("#reportsubmit").hide()
+  })
+
+  $("#view-button").click(function(){
+    $('#reportform').hide()
+    $('#viewform').show()
+    $("#viewsubmit").hide()
+  })
+}
+
+$(document).ready(function(){
+  sessionCheck()
+  .then(function(data){
+    return data.logged_in
+    })
+  .then(sideBarMenu)
+})  
