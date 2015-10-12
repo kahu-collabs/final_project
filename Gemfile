@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'geokit-rails'
 
 group :development, :test do
+	gem 'chromedriver-helper'
 	gem 'selenium-webdriver'
 	gem 'capybara'
 	gem 'rspec-rails', '~> 3.0'
