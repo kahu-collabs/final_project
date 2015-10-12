@@ -39,8 +39,4 @@ module.exports = function (map, layer) {
       return (feature.properties['title'] in enabled);
     });
   }
-// });
-
-
-
 }
