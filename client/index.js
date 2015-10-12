@@ -46,8 +46,6 @@ function render(data){
 }
 
 function submitCrime(input){
-
-
   $.ajax({
     type: "POST",
     url: "api/v1/reports",
@@ -76,7 +74,22 @@ $('#viewform').submit(function(event){
   dat_nearby(radius, lat, lng)
 })
 
+$('#communityposts').submit(function(event){
+  event.preventDefault()
+  var to_db = {suburb_id: parseInt(event.target[0].value), body: event.target[1].value}
+  submitPost(to_db)
+  // getPosts()
+})
 
+function submitPost(input){
+  $.ajax({
+    type: "POST",
+    url: "api/v1/messages",
+    data: input,
+    success: console.log('posted message'),
+    dataType: "json"
+  });
+}
 
 
 
