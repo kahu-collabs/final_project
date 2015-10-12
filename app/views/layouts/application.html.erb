@@ -20,8 +20,12 @@
         <button id="view-button">View</button>
       </div>
 
-      <form id="reportform">
-      </form>
+      <% if current_user %>
+        <form id="reportform">
+        </form>
+      <% else %>
+        <%= link_to 'Login', '/auth/facebook'%>
+      <% end %>
 
       <form id="viewform">
       </form>
