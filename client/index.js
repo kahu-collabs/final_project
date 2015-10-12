@@ -76,7 +76,6 @@ $('#reportform').submit(function(event){
 $('#viewform').submit(function(event){
   event.preventDefault();
   radius = event.target[0].value
-  console.log(radius, lat, lng)
   dat_nearby(radius, lat, lng)
 })
 
