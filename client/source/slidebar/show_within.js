@@ -14,6 +14,7 @@ function bar_ready(){
   $('#reportform').hide()
   $("#reportsubmit").hide()
   $("#viewsubmit").hide()
+  $('#communityposts').hide()
 }
 
 bar_ready()
@@ -32,12 +33,20 @@ $("#report-button").click(function(){
   $('#viewform').hide()
   $('#reportform').show()
   $("#reportsubmit").hide()
+  $('#communityposts').hide()
 })
 
 $("#view-button").click(function(){
   $('#reportform').hide()
   $('#viewform').show()
   $("#viewsubmit").hide()
+  $('#communityposts').hide()
+})
+
+$("#community-posts-button").click(function(){
+  $('#communityposts').show()
+  $('#viewform').hide()
+  $('#reportform').hide()
 })
 
 
