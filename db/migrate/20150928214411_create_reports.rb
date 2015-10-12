@@ -4,7 +4,7 @@ class CreateReports < ActiveRecord::Migration
       t.string :category_type
       t.float :lat
       t.float :lng
-      t.belongs_to :suburb, index:true
+      t.belongs_to :suburb
       t.string :description
       t.boolean :happened_before, default: false
       t.string :date

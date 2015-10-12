@@ -1,7 +1,7 @@
 require('handlebars');
 var render_it = require('./handlebars_content')
 
-module.exports = function dat_nearby(radius, lat, lng){
+module.exports = function (radius, lat, lng){
   $.get( "api/v1/nearby",  {within: radius, origin: [lat, lng]}, function( data ) {
       $( ".results" ).html( data );
   make_reports(data)
@@ -12,7 +12,7 @@ module.exports = function dat_nearby(radius, lat, lng){
 function make_reports(data){
   for (i = 0; i < data.length; i++) {
     var x = data[i]
-    $("#sidr").append(
+    $("#sidr").html(
       "<h1>" + x.date + "</h1><p>" + get_type[x.category_type] + "</p><p>" + x.description + "</p>"
       )
   }
@@ -29,12 +29,7 @@ var get_type = {
 }
 
 
-
-
-
-
-var reportForm = '<form id="report_form">' +
-'  <label for="crime">What sort of incident are you reporting?</label>'
+var reportForm = '<label for="crime">What sort of incident are you reporting?</label>'
 +  '<select name="incident" id="incident">'
 +    '<option value="1">Assault/harrassment</option>'
 +    '<option value="2">Vandalism or criminal damage</option>'
@@ -61,19 +56,21 @@ var reportForm = '<form id="report_form">' +
 +  '<input type="checkbox" name="" id="happened_before"> This has happened before<br></br>'
 + '<p>Click the map where you would like to drop your pin</p>'
 +  '<input type="submit" value="Submit" id="submit">'
-+ '</form>'
 
-var viewForm = "<form id='view_form'>"
-+ '<label for="description">View all incidents within a'
-+  '<input type="text-area" name="" id="radius"> kilometer radius of your pin drop</label>'
-+ '</form>'
+var viewForm = '<label for="description">View all incidents within a</label>'
++  '<input type="number" name="" id="radius">'
++  '<input type="submit" value="Submit" id="submit">'
 
 $("#report-button").click(function(){
-  $('#viewform').html(reportForm)
+  $('#viewform').html('')
+  $('#reportform').html(reportForm)
   $("#submit").hide()
 })
 
 $("#view-button").click(function(){
+  $('#reportform').html('')
   $('#viewform').html(viewForm)
   $("#submit").hide()
 })
+
+

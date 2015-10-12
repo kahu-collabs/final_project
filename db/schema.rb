@@ -41,8 +41,6 @@ ActiveRecord::Schema.define(version: 20151007225321) do
     t.datetime "updated_at",                      null: false
   end
 
-  add_index "reports", ["suburb_id"], name: "index_reports_on_suburb_id", using: :btree
-
   create_table "suburbs", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
