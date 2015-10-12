@@ -1,5 +1,5 @@
 require('handlebars');
-
+var render_it = require('./source/slidebar/handlebars_content')
 var makeObjects = require('./source/map/make_objects')
 var filter = require('./source/map/filter')
 var dat_nearby = require('./source/slidebar/show_within')
@@ -17,12 +17,9 @@ var lng = 0
 map.on('click', function(e) {
   lat = e.latlng.lat
   lng = e.latlng.lng
-  $("#submit").show()
+  $(".submit_button").show()
 });
 
-
-
-function drop_pin_view_events(){}
 
 function dat_get(){
 	$.get( "api/v1/reports", function( data ) {

@@ -18,6 +18,8 @@
       <div id="buttonsmenu">
         <button id="report-button">Report</button>
         <button id="view-button">View</button>
+        <button id="my-reports">My Reports</button>
+        <button id="community-posts">Community posts</button>
       </div>
 
       <form id="reportform">
@@ -46,18 +48,29 @@
     </select><br></br>
     <input type="checkbox" name="" id="happened_before"> This has happened before<br></br>
     <p>Click the map where you would like to drop your pin</p>
-    <input type="submit" value="Submit" id="reportsubmit">
+    <input type="submit" class="submit_button" value="Submit" id="reportsubmit">
   </form>
 
   <form id="viewform">
     <label for="description">View all incidents within a</label>
     <input type="number" name="" id="radius">
-    <input type="submit" value="Submit" id="viewsubmit">
+    <input type="submit" class="submit_button" value="Submit" id="viewsubmit">
   </form>
 
-  <script id="entry-template" type="text/x-handlebars-template">
 
-  </script>
+
+<script id="example-template" type="text/x-handlebars-template">
+  {{#each these}}
+  <div class="entry">
+    <h1>{{this.properties.title}}</h1>
+    <div class="body">
+      {{this.properties.description}}
+    </div>
+  </div>
+  {{/each}}
+</script>
+
+
 </div>
 <nav>
   <% if current_user %>
