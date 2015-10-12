@@ -5,7 +5,6 @@ module.exports = function (radius, lat, lng){
   $.get( "api/v1/nearby",  {within: radius, origin: [lat, lng]}, function( data ) {
       $( ".results" ).html( data );
   make_reports(data)
-  console.log(data)
   });
 }
 
