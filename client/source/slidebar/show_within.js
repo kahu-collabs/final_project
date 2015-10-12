@@ -18,12 +18,8 @@ function bar_ready(){
 bar_ready()
 
 function make_reports(data){
-  for (i = 0; i < data.length; i++) {
-    var x = data[i]
-    $("#sidr").html(
-      "<h1>" + x.date + "</h1><p>" + get_type[x.category_type] + "</p><p>" + x.description + "</p>"
-      )
-  }
+  console.log(data)
+  render_it(data)
 }
 
 
