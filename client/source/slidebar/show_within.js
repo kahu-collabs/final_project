@@ -1,11 +1,11 @@
 require('handlebars');
 var render_it = require('./handlebars_content')
 var get_type = require('./../map/get_title')
-<<<<<<< HEAD
+
 var render_vis = require('./../vis/vis')
-=======
+
 var users_own = require('./main_menu')
->>>>>>> d5e6f3042b6c3e1c73e0ba7c65df792753e53666
+
 
 module.exports = function (radius, lat, lng){
   $.get( "api/v1/nearby",  {within: radius, origin: [lat, lng]}, function( data ) {
@@ -19,13 +19,11 @@ function bar_ready(){
   $('#reportform').hide()
   $("#reportsubmit").hide()
   $("#viewsubmit").hide()
-<<<<<<< HEAD
-  // $("#map-button").hide()
-=======
+
   $('#communityposts').hide()
 
   users_own()
->>>>>>> d5e6f3042b6c3e1c73e0ba7c65df792753e53666
+
 }
 
 bar_ready()

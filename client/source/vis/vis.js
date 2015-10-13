@@ -1,4 +1,5 @@
-var data = require('')
+var data_maker = require('./datamaker')
+var colours = require('./../map/type-map')
 
 module.exports = function(){
 var margin = {
@@ -7,19 +8,11 @@ var margin = {
     bottom: 20,
     left: 20
 },
-width = 960 - margin.left - margin.right,
+    width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 //Important, each row is one "signal"
-var data = [
-    [1, 4, 2, 7, 9, 15],
-    [1, 2, 5, 10, 12, 19],
-    [1, 20, 16, 6, 10, 5],
-    [1, 17, 16, 6, 10, 20],
-    [1, 17, 16, 60, 10, 10],
-    [1, 17, 16, 6, 10, 30],
-    [1, 17, 80, 6, 100, 30]
-];
+var data = data_maker()
 
 //get the max y of the domain, so that itll never go beyond screen
 var sum = new Array(data.length); //placeholder array
