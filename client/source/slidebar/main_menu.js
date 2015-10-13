@@ -11,15 +11,15 @@ function pinData(data){
   var date = data[i]["date"]
   var description = data[i]["description"]
   printUserReports(data)
-  // console.log(userReports)
-  // console.log(category)
-  // console.log(date)
-  // console.log(description)
-  // console.log(data[i]["user_id"])
   }
 }
 
-// $(document).ready(function(){
-//   crimesForPin()
-// })
 
+
+function renderPosts(data) {
+  postsHtml = ''
+  data.map(function(post) {
+    postsHtml += '<div class="post">Created at:'+post.created_at+' by '+post.user_id+'<br><p>'+post.body+'</p></div>'
+  })
+  return postsHtml
+}

@@ -1,9 +1,7 @@
 require('handlebars');
 var render_it = require('./handlebars_content')
 var get_type = require('./../map/get_title')
-
 var render_vis = require('./../vis/vis')
-
 var users_own = require('./main_menu')
 
 
