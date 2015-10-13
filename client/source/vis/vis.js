@@ -1,9 +1,9 @@
 module.exports = function(){
 var margin = {
-    top: 50,
-    right: 50,
-    bottom: 50,
-    left: 50
+    top: 20,
+    right: 20,
+    bottom: 20,
+    left: 20
 },
 width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;

@@ -15,7 +15,7 @@ function bar_ready(){
   $('#reportform').hide()
   $("#reportsubmit").hide()
   $("#viewsubmit").hide()
-  $("#vis").hide()
+  // $("#map-button").hide()
 }
 
 bar_ready()
@@ -57,10 +57,6 @@ function sideBarMenu(loggedIn){
     $("#viewsubmit").hide()
   })
 
-  $("#vis-button").click(function(){
-    render_vis()
-  })
-
 }
 
 $(document).ready(function(){
@@ -70,3 +66,18 @@ $(document).ready(function(){
     })
   .then(sideBarMenu)
 })
+
+  $("#vis-button").click(function(){
+    $("#vis").html('')
+    $("#map").hide()
+    $("#vis").show()
+    $("#vis-button").hide
+    render_vis()
+  })
+
+  $("#map-button").click(function(){
+    console.log("map")
+    $("#vis").hide()
+    $("#map").show()
+    $("#map-button").hide
+  })
