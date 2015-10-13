@@ -21,13 +21,17 @@ map.on('click', function(e) {
   $(".submit_button").show()
 });
 
+// COMMENTS the code is structured 
+//  one function calls the next function which calls the next function etc
+
+
 
 function dat_get(){
 	$.get( "api/v1/reports", function( data ) {
 		  $( ".result" ).html( data );
 		  var renderObjects = makeObjects(data)
 		  render(renderObjects);
-      filter(map, myLayer)
+      filter(map, myLayer) //'filter' unclear, what does the function do?
 	});
 }
 
@@ -108,5 +112,3 @@ function renderPosts(data) {
   })
   return postsHtml
 }
-
-

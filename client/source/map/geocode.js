@@ -1,7 +1,6 @@
 module.exports=function(lat, lng){
   var obj = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat +"," + lng
-  $.get(obj, successFunction,
-  "json")
+  $.get(obj, successFunction, "json")
 }
 
 

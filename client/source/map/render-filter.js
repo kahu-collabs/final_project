@@ -1,6 +1,7 @@
 var update = require('./update-filter')
 
 module.exports = function(type, layer, checkboxes){
+  // unused argumants: layer, checkboxes
   var item = filters.appendChild(document.createElement('div'));
   var checkbox = item.appendChild(document.createElement('input'));
   var label = item.appendChild(document.createElement('label'));

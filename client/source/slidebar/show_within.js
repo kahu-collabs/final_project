@@ -26,6 +26,7 @@ function bar_ready(){
 
 }
 
+//when is this called? in document.ready? index.js?
 bar_ready()
 
 function make_reports(data){
@@ -67,7 +68,11 @@ function sideBarMenu(loggedIn){
 
 }
 
+
+//keep document ready calls in index.js
 $(document).ready(function(){
+
+  //PROMISES !!!
   sessionCheck()
   .then(function(data){
     return data.logged_in
@@ -75,7 +80,7 @@ $(document).ready(function(){
   .then(sideBarMenu)
 })
 
-
+//keep event handlers in own file
   $("#vis-button").click(function(){
     $("#vis").html('')
     $("#map").hide()
@@ -89,4 +94,3 @@ $(document).ready(function(){
     $("#map").show()
     $("#map-button").hide
   })
-

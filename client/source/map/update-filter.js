@@ -1,4 +1,5 @@
 module.exports = function(layer, checkboxes){
+  
   return function() {
     var enabled = {};
 
