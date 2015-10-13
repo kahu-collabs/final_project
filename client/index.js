@@ -3,6 +3,7 @@ var render_it = require('./source/slidebar/handlebars_content')
 var makeObjects = require('./source/map/make_objects')
 var filter = require('./source/map/filter')
 var dat_nearby = require('./source/slidebar/show_within')
+var suburb = require('./source/map/geocode')
 
 
 L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
@@ -45,6 +46,7 @@ function render(data){
   myLayer.setGeoJSON(data);
 }
 
+
 function submitCrime(input){
   $.ajax({
     type: "POST",
@@ -58,7 +60,6 @@ function submitCrime(input){
 
 $(document).ready(function(){
     dat_get()
-
 })
 
 $('#reportform').submit(function(event){
@@ -107,4 +108,5 @@ function renderPosts(data) {
   })
   return postsHtml
 }
+
 
