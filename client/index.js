@@ -46,8 +46,6 @@ function render(data){
 }
 
 function submitCrime(input){
-
-
   $.ajax({
     type: "POST",
     url: "api/v1/reports",
@@ -75,3 +73,38 @@ $('#viewform').submit(function(event){
   radius = event.target[0].value
   dat_nearby(radius, lat, lng)
 })
+
+
+$('#communityposts').submit(function(event){
+  event.preventDefault()
+  var to_db = {suburb_id: parseInt(event.target[0].value), body: event.target[1].value}
+  submitPost(to_db)
+  event.target[1].value = ''
+  getPosts(event.target[0].value)
+})
+
+function submitPost(input){
+  $.ajax({
+    type: "POST",
+    url: "api/v1/messages",
+    data: input,
+    success: console.log('posted message'),
+    dataType: "json"
+  });
+}
+
+function getPosts(id) {
+  var url = "api/v1/messages?suburb_id=" + id.toString()
+  $.get( url, function( data ) {
+    $('#posts').html(renderPosts(data))
+  });
+}
+
+function renderPosts(data) {
+  postsHtml = ''
+  data.map(function(post) {
+    postsHtml += '<div class="post">Created at:'+post.created_at+' by '+post.user_id+'<br><p>'+post.body+'</p></div>'
+  })
+  return postsHtml
+}
+

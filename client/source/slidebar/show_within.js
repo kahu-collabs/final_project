@@ -15,6 +15,8 @@ function bar_ready(){
   $('#reportform').hide()
   $("#reportsubmit").hide()
   $("#viewsubmit").hide()
+  $('#communityposts').hide()
+
   users_own()
 }
 
@@ -26,10 +28,6 @@ function make_reports(data){
   render_it(data)
 }
 
-
-
-
-
 function sessionCheck(){
     return $.get("api/v1/session_check")
   }
@@ -40,20 +38,27 @@ function sideBarMenu(loggedIn){
     if (loggedIn) {
       $('#reportform').show()
       $('#fb-login').hide()
-
     } else{
       $('#reportform').hide()
       $('#fb-login').show()
     }
 
-    $('#viewform').hide()  
+    $('#viewform').hide()
     $("#reportsubmit").hide()
+    $('#communityposts').hide()
   })
 
   $("#view-button").click(function(){
     $('#reportform').hide()
     $('#viewform').show()
     $("#viewsubmit").hide()
+    $('#communityposts').hide()
+  })
+
+  $("#community-posts-button").click(function(){
+    $('#communityposts').show()
+    $('#viewform').hide()
+    $('#reportform').hide()
   })
 }
 
@@ -63,4 +68,4 @@ $(document).ready(function(){
     return data.logged_in
     })
   .then(sideBarMenu)
-})  
+})
