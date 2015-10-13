@@ -1,8 +1,6 @@
 var test = require('tape')
 var make_objects = require('../source/map/make_objects')
 
-
-
 var expected = [
   {
     "type":"Feature",
@@ -40,7 +38,7 @@ test('make_objects makes the valid objects', function(t) {
 
   var actual = make_objects(fakeData)
   t.pass(JSON.stringify(actual))
-  t.deepEqual(expected[0], actual[0], 'green!')
+  t.deepEqual(expected[0], actual[0], 'the expected is the same as the actual!')
   t.end()
 
 
