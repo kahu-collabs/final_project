@@ -29,10 +29,7 @@ function bar_ready(){
 bar_ready()
 
 function make_reports(data){
-
-  console.log(data)
   render_it(data)
-
 }
 
 function sessionCheck(){
@@ -88,7 +85,6 @@ $(document).ready(function(){
   })
 
   $("#map-button").click(function(){
-    console.log("map")
     $("#vis").hide()
     $("#map").show()
     $("#map-button").hide
