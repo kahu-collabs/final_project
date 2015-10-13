@@ -1,6 +1,7 @@
 require('handlebars');
 var render_it = require('./handlebars_content')
 var get_type = require('./../map/get_title')
+var users_own = require('./main_menu')
 
 module.exports = function (radius, lat, lng){
   $.get( "api/v1/nearby",  {within: radius, origin: [lat, lng]}, function( data ) {
@@ -14,6 +15,7 @@ function bar_ready(){
   $('#reportform').hide()
   $("#reportsubmit").hide()
   $("#viewsubmit").hide()
+  users_own()
 }
 
 bar_ready()
