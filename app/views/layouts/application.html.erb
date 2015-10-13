@@ -2,9 +2,10 @@
   <head>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
-    <!--  <link href="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.css" type="text/css" rel="stylesheet" /> -->
+     <link href="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.css" type="text/css" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="stylesheet/jquery.sidr.light.css"> -->
     <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <title>Batmap</title>
     <meta name="description" content="Batmap">
     <meta name="author" content="EDA Kahu-2015">
@@ -17,10 +18,11 @@
     <a id="simple-menu" href="#sidr">Toggle menu</a>
     <div id="sidr">
       <div id="buttonsmenu">
-        <button id="report-button">Report</button>      
+        <button id="report-button">Report</button>
         <button id="view-button">View</button>
         <button id="my-reports">My Reports</button>
         <button id="community-posts">Community posts</button>
+        <button data-featherlight="#vis" id="vis-button">Data</button>
       </div>
 
       <button id="fb-login">Login with facebook</button>
@@ -68,13 +70,18 @@
     <h1>{{this.properties.title}}</h1>
     <div class="body">
       {{this.properties.description}}
+      {{this.properties.date}
     </div>
   </div>
   {{/each}}
 </script>
 
 
+<div id="vis"></div>
+
 </div>
+
+
 <nav>
   <% if current_user %>
   Signed in

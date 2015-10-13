@@ -1,6 +1,7 @@
 require('handlebars');
 var render_it = require('./handlebars_content')
 var get_type = require('./../map/get_title')
+var render_vis = require('./../vis/vis')
 
 module.exports = function (radius, lat, lng){
   $.get( "api/v1/nearby",  {within: radius, origin: [lat, lng]}, function( data ) {
@@ -14,6 +15,7 @@ function bar_ready(){
   $('#reportform').hide()
   $("#reportsubmit").hide()
   $("#viewsubmit").hide()
+  $("#vis").hide()
 }
 
 bar_ready()
@@ -22,6 +24,7 @@ function make_reports(data){
 
   console.log(data)
   render_it(data)
+
 }
 
 
@@ -44,7 +47,7 @@ function sideBarMenu(loggedIn){
       $('#fb-login').show()
     }
 
-    $('#viewform').hide()  
+    $('#viewform').hide()
     $("#reportsubmit").hide()
   })
 
@@ -53,6 +56,11 @@ function sideBarMenu(loggedIn){
     $('#viewform').show()
     $("#viewsubmit").hide()
   })
+
+  $("#vis-button").click(function(){
+    render_vis()
+  })
+
 }
 
 $(document).ready(function(){
@@ -61,4 +69,4 @@ $(document).ready(function(){
     return data.logged_in
     })
   .then(sideBarMenu)
-})  
+})

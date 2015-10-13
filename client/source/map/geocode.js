@@ -15,6 +15,7 @@ function successFunction(data) {
   // console.log(suburb)
   console.log(sub_ids[sub])
   return sub_ids[sub]
+}
   // return sub_ids[suburb]
 
 //
