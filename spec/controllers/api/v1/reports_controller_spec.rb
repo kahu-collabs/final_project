@@ -12,6 +12,7 @@ RSpec.describe Api::V1::ReportsController, type: :controller do
 
 	describe "GET all reports" do
 		let!(:mock_all){
+      #this should return report objects not a hash
 			allow(Report).to receive(:all) {[{text:"meow"}]}
 		}
 
