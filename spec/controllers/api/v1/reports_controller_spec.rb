@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::ReportsController, type: :controller do
 
 	let(:mock_current_user){
+    #this should use a factory girl create
 		user = User.new
 		user.id = 1
 		allow_any_instance_of(ApplicationController).to receive(:current_user).and_return (user)
