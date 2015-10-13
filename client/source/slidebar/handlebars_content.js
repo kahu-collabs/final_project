@@ -7,7 +7,6 @@ module.exports = function (data_in) {
   var theTemplateScript = $("#example-template").html();
   var theTemplate = Handlebars.compile(theTemplateScript);
   var context = {these: objects}
-  console.log("context", context)
   var theCompiledHtml = theTemplate(context);
   $("#sidr").append(theCompiledHtml);
 }
