@@ -14,6 +14,8 @@ rerun.txt
 pickle-email-*.html
 client/node_modules
 app/assets/javascripts/bundle.js
+client/npm-debug.log
+
 
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
