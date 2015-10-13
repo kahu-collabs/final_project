@@ -74,6 +74,7 @@ $('#viewform').submit(function(event){
   dat_nearby(radius, lat, lng)
 })
 
+
 $('#communityposts').submit(function(event){
   event.preventDefault()
   var to_db = {suburb_id: parseInt(event.target[0].value), body: event.target[1].value}
@@ -106,5 +107,4 @@ function renderPosts(data) {
   })
   return postsHtml
 }
-
 

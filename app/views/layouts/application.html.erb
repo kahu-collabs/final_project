@@ -19,7 +19,6 @@
       <div id="buttonsmenu">
         <button id="report-button">Report</button>
         <button id="view-button">View</button>
-        <button id="my-reports">My Reports</button>
         <button id="community-posts-button">Community posts</button>
       </div>
 
@@ -42,14 +41,8 @@
         <label for="date">On what date did the incident occur?</label>
         <input type="date" name="" id="date"><br></br>
       </select><br></br>
-      <label for="time">Select a time between these hours of when it happend</label>
-      <select name="time" id="time">
-       <option value="time">1pm - 12pm</option>
-     </select>
-     <select name="time" id="time">
-      <option value="time">1pm - 12pm</option>
-    </select><br></br>
     <input type="checkbox" name="" id="happened_before"> This has happened before<br></br>
+
     <p>Click the map where you would like to drop your pin</p>
     <input type="submit" class="submit_button" value="Submit" id="reportsubmit">
   </form>
@@ -122,6 +115,7 @@
     <h1>{{this.properties.title}}</h1>
     <div class="body">
       {{this.properties.description}}
+      {{this.properties.date}}
     </div>
   </div>
   {{/each}}
