@@ -10,12 +10,14 @@ module.exports=function(lat, lng){
 
 function successFunction(data) {
   var sub = data["results"][0]["address_components"][2]["short_name"]
-  var suburb = ((data["results"][1]["formatted_address"].split(","))[0])
-  console.log(data)
+  // var suburb = ((data["results"][1]["formatted_address"].split(","))[0])
+  console.log(sub)
+  // console.log(suburb)
+  console.log(sub_ids[sub])
   return sub_ids[sub]
   // return sub_ids[suburb]
-}
 
+//
 
 
 var sub_ids = {"Aro Valley": 1 ,
