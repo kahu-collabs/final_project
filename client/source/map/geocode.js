@@ -9,10 +9,12 @@ module.exports=function(lat, lng){
 
 
 function successFunction(data) {
+  var sub = data["results"][0]["address_components"][2]["short_name"]
   var suburb = ((data["results"][1]["formatted_address"].split(","))[0])
-  console.log(suburb)
-  console.log(sub_ids[suburb])
-  return sub_ids.suburb}
+  console.log(data)
+  return sub_ids[sub]
+  // return sub_ids[suburb]
+}
 
 
 
