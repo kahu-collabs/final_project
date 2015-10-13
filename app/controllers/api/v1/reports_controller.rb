@@ -38,6 +38,9 @@ class Api::V1::ReportsController < ApplicationController
   def user_reports
     @reports = Report.where(user: current_user)
     render json: @reports
+    # I wanted to change this to
+    # render json: current_user.reports
+    # but there was no test coverage to double check everything would work fine
   end
 
 	private
