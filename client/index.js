@@ -79,6 +79,7 @@ $('#communityposts').submit(function(event){
   var to_db = {suburb_id: parseInt(event.target[0].value), body: event.target[1].value}
   submitPost(to_db)
   event.target[1].value = ''
+  getPosts(event.target[0].value)
 })
 
 function submitPost(input){
@@ -91,5 +92,19 @@ function submitPost(input){
   });
 }
 
+function getPosts(id) {
+  var url = "api/v1/messages?suburb_id=" + id.toString()
+  $.get( url, function( data ) {
+    $('#posts').html(renderPosts(data))
+  });
+}
+
+function renderPosts(data) {
+  postsHtml = ''
+  data.map(function(post) {
+    postsHtml += '<div class="post">Created at:'+post.created_at+' by '+post.user_id+'<br><p>'+post.body+'</p></div>'
+  })
+  return postsHtml
+}
 
 

@@ -2,6 +2,8 @@ class Api::V1::MessagesController < ApplicationController
   before_filter :require_current_user, only: [:destroy, :create]
 
   def index
+    posts = Post.where(suburb_id: params[:suburb_id])
+    render json: posts
   end
 
   def create

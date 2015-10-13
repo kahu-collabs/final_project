@@ -42,12 +42,14 @@ function sideBarMenu(loggedIn){
 
     $('#viewform').hide()
     $("#reportsubmit").hide()
+    $('#communityposts').hide()
   })
 
   $("#view-button").click(function(){
     $('#reportform').hide()
     $('#viewform').show()
     $("#viewsubmit").hide()
+    $('#communityposts').hide()
   })
 
   $("#community-posts-button").click(function(){
