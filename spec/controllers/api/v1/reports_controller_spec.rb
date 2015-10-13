@@ -88,8 +88,6 @@ RSpec.describe Api::V1::ReportsController, type: :controller do
 			post_report
 			expect(response.status).to eq(403)
 		end
-
-
 	end
 
 	describe "DELETE a report" do
@@ -127,9 +125,4 @@ RSpec.describe Api::V1::ReportsController, type: :controller do
 			expect(response.status).to eq(403)
 		end
 	end
-
-
-
-
-
 end
