@@ -25,28 +25,42 @@ function make_reports(data){
   render_it(data)
 }
 
+function sessionCheck(){
+    return $.get("api/v1/session_check")
+  }
 
+function sideBarMenu(loggedIn){
+  $('#fb-login').hide()
+  $("#report-button").click(function(){
+    if (loggedIn) {
+      $('#reportform').show()
+      $('#fb-login').hide()
+    } else{
+      $('#reportform').hide()
+      $('#fb-login').show()
+    }
 
+    $('#viewform').hide()
+    $("#reportsubmit").hide()
+  })
 
+  $("#view-button").click(function(){
+    $('#reportform').hide()
+    $('#viewform').show()
+    $("#viewsubmit").hide()
+  })
 
-$("#report-button").click(function(){
-  $('#viewform').hide()
-  $('#reportform').show()
-  $("#reportsubmit").hide()
-  $('#communityposts').hide()
+  $("#community-posts-button").click(function(){
+    $('#communityposts').show()
+    $('#viewform').hide()
+    $('#reportform').hide()
+  })
+}
+
+$(document).ready(function(){
+  sessionCheck()
+  .then(function(data){
+    return data.logged_in
+    })
+  .then(sideBarMenu)
 })
-
-$("#view-button").click(function(){
-  $('#reportform').hide()
-  $('#viewform').show()
-  $("#viewsubmit").hide()
-  $('#communityposts').hide()
-})
-
-$("#community-posts-button").click(function(){
-  $('#communityposts').show()
-  $('#viewform').hide()
-  $('#reportform').hide()
-})
-
-

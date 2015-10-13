@@ -9,16 +9,13 @@ Rails.application.routes.draw do
 	namespace :api do
 		namespace :v1 do
         get '/nearby' => 'reports#nearby'
+        get '/session_check' => 'users#session_check'
+
   			resources :reports, except: [:edit, :new]
         resources :users
         resources :suburbs
         resources :messages
-
 		end
-
-    namespace :v2 do
-        resources :reports, except: [:edit, :new]
-    end
 	end
 end
 
