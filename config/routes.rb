@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 		namespace :v1 do
         get '/nearby' => 'reports#nearby'
         get '/session_check' => 'users#session_check'
+        get '/user_reports' => 'reports#user_reports'
 
   			resources :reports, except: [:edit, :new]
         resources :users

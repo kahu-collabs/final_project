@@ -1,7 +1,11 @@
 require('handlebars');
 var render_it = require('./handlebars_content')
 var get_type = require('./../map/get_title')
+<<<<<<< HEAD
 var render_vis = require('./../vis/vis')
+=======
+var users_own = require('./main_menu')
+>>>>>>> d5e6f3042b6c3e1c73e0ba7c65df792753e53666
 
 module.exports = function (radius, lat, lng){
   $.get( "api/v1/nearby",  {within: radius, origin: [lat, lng]}, function( data ) {
@@ -15,7 +19,13 @@ function bar_ready(){
   $('#reportform').hide()
   $("#reportsubmit").hide()
   $("#viewsubmit").hide()
+<<<<<<< HEAD
   // $("#map-button").hide()
+=======
+  $('#communityposts').hide()
+
+  users_own()
+>>>>>>> d5e6f3042b6c3e1c73e0ba7c65df792753e53666
 }
 
 bar_ready()
@@ -27,10 +37,6 @@ function make_reports(data){
 
 }
 
-
-
-
-
 function sessionCheck(){
     return $.get("api/v1/session_check")
   }
@@ -41,7 +47,6 @@ function sideBarMenu(loggedIn){
     if (loggedIn) {
       $('#reportform').show()
       $('#fb-login').hide()
-
     } else{
       $('#reportform').hide()
       $('#fb-login').show()
@@ -49,12 +54,20 @@ function sideBarMenu(loggedIn){
 
     $('#viewform').hide()
     $("#reportsubmit").hide()
+    $('#communityposts').hide()
   })
 
   $("#view-button").click(function(){
     $('#reportform').hide()
     $('#viewform').show()
     $("#viewsubmit").hide()
+    $('#communityposts').hide()
+  })
+
+  $("#community-posts-button").click(function(){
+    $('#communityposts').show()
+    $('#viewform').hide()
+    $('#reportform').hide()
   })
 
 }
@@ -66,6 +79,7 @@ $(document).ready(function(){
     })
   .then(sideBarMenu)
 })
+
 
   $("#vis-button").click(function(){
     $("#vis").html('')
@@ -81,3 +95,4 @@ $(document).ready(function(){
     $("#map").show()
     $("#map-button").hide
   })
+

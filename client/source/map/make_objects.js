@@ -10,7 +10,6 @@ var crimePrototype = {
 }
 
 module.exports = function(rawData) {
-  console.log("raw", rawData)
   return rawData.map(function(item) {
     // if your function returns use a .map rather than creating an array then pushing into it.
     var category = parseInt(item.category_type)
@@ -26,7 +25,7 @@ module.exports = function(rawData) {
     crimeObj.properties.description = item.description
     crimeObj.properties["marker-color"] = type.marker_colour
     return crimeObj
-
   })
-
 }
+
+

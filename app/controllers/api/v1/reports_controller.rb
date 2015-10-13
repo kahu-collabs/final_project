@@ -12,7 +12,7 @@ class Api::V1::ReportsController < ApplicationController
 	end
 
 	def create
-			report = Report.create(report_params.merge(user: current_user))
+		report = Report.create(report_params.merge(user: current_user))
 
     if report.persisted?
       render json: report
@@ -32,6 +32,11 @@ class Api::V1::ReportsController < ApplicationController
 
   def nearby
     @reports = Report.within(params[:within], :origin => params[:origin])
+    render json: @reports
+  end
+
+  def user_reports
+    @reports = Report.where(user: current_user)
     render json: @reports
   end
 
