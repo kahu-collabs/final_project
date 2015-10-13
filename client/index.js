@@ -64,7 +64,7 @@ $(document).ready(function(){
 
 $('#reportform').submit(function(event){
   event.preventDefault();
-	var to_db = {suburb_id: suburb(lat, lng), category_type: parseInt(event.target[0].value), description: event.target[1].value, date: event.target[2].value, suburb_id: parseInt(event.target[3].value), happened_before: event.target[6].checked, lat: lat, lng: lng };
+	var to_db = {suburb_id: suburb(lat, lng), category_type: parseInt(event.target[0].value), description: event.target[1].value, date: event.target[2].value, suburb_id: parseInt(event.target[3].value), happened_before: event.target[4].checked, lat: lat, lng: lng };
   submitCrime(to_db);
 	dat_get();
 })
