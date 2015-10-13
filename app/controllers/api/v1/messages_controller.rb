@@ -2,7 +2,7 @@ class Api::V1::MessagesController < ApplicationController
   before_filter :require_current_user, only: [:destroy, :create]
 
   def index
-    posts = Post.where(suburb_id: params[:suburb_id])
+    posts = Post.where(suburb_id: params[:suburb_id]).reverse
     render json: posts
   end
 
