@@ -7,7 +7,7 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   def create
-      post = Post.create(post_params.merge(user: current_user))
+    post = Post.create(post_params.merge(user: current_user))
 
     if post.persisted?
       render json: post
@@ -19,13 +19,11 @@ class Api::V1::MessagesController < ApplicationController
   private
 
     def post_params
-        params.permit(:suburb_id, :body)
+      params.permit(:suburb_id, :body)
     end
 
     def require_current_user
       head 403 unless current_user
     end
-
-
 end
 
