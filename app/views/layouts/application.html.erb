@@ -6,7 +6,7 @@
     <!-- <link rel="stylesheet" href="stylesheet/jquery.sidr.light.css"> -->
     <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-    <title>Batmap</title>
+    <title>Birdseye</title>
     <meta name="description" content="Batmap">
     <meta name="author" content="EDA Kahu-2015">
     <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
@@ -47,17 +47,22 @@
 
     <div id="sidr">
       <div id="buttonsmenu">
-        <button id="report-button">Report</button>
-        <button id="view-button">View</button>
-        <button id="my-reports">My Reports</button>
-        <button id="map-button">Map</button>
-        <button id="vis-button">Vis</button>
-        <button id="community-posts-button">Community posts</button>
+        <div id="center-me">
+          <button id="report-button" class="btn">Report</button>
+          <button id="view-button" class="btn">View</button>
+          <button id="my-reports" class="btn">My Reports</button>
+          <button id="map-button" class="btn">Map</button>
+          <button id="vis-button" class="btn">Vis</button>
+          <button id="community-posts-button" class="btn">Noticeboards</button>
       </div>
+      </div>
+
+      <br>
+      <br>
 
       <button id="fb-login">Login with facebook</button>
 
-      <form id="reportform">
+      <form id="reportform" class="bar-form">
         <label for="crime">What sort of incident are you reporting?</label>
         <select name="incident" id="incident">
           <option value="1">Assault/harrassment</option>
@@ -80,13 +85,13 @@
     <input type="submit" class="submit_button" value="Submit" id="reportsubmit">
   </form>
 
-  <form id="viewform">
+  <form id="viewform" "bar-form">
     <label for="description">View all incidents within a</label>
     <input type="number" name="" id="radius">
     <input type="submit" class="submit_button" value="Submit" id="viewsubmit">
   </form>
 
-  <form id="communityposts">
+  <form id="communityposts" "bar-form">
     <label for="suburb">What suburb do you want to post to?</label>
     <select name="suburb_id" id="suburb">
       <option value="1">Aro Valley</option>
@@ -139,7 +144,7 @@
     <input type="submit" class="submit_button" value="Submit" id="postsubmit">
 
     </form>
-    <div id="posts"></div>
+    <div id="posts" "bar-form"></div>
 
 
   <script id="example-template" type="text/x-handlebars-template">
