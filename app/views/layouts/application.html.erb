@@ -47,7 +47,6 @@
       <div id="buttonsmenu">
         <button id="view-button" class="btn btn-default btn-xs">Home</button></br>
         <button id="report-button" class="btn btn-default btn-xs">Report a crime</button></br>
-<!--         <button id="map-button" class="btn btn-default btn-xs">Map</button> -->
         <button id="community-posts-button" class="btn btn-default btn-xs">Community posts</button></br>
         <button id="vis-button" class="btn btn-default btn-xs">Graph data</button></br>
       </div>
@@ -136,15 +135,15 @@
         </div>
       </div>
     </div>
-    <nav>
+    <nav class="login-button">
       <% if current_user %>
         Signed in
         <%= link_to 'Sign Out', '/sign_out', method: :delete %>
       <% else %>
         <%= link_to 'Login', '/auth/facebook' %>
       <% end %>
+      <%= yield %>
     </nav>
-    <%= yield %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script src="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
