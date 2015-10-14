@@ -5,18 +5,12 @@ var each = require('lodash.foreach')
 
 
 module.exports = function(type, layer, checkboxes){
-
 var text_colour = ''
-
-
 $.each(type_id, function(key, value){
   if(value.title == type){
     text_colour = value.marker_colour
   }
 })
-
-  console.log("text", text_colour)
-
   var item = filters.appendChild(document.createElement("div"));
   var checkbox = item.appendChild(document.createElement("input"));
   var label = item.appendChild(document.createElement("label"));

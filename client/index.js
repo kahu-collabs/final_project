@@ -23,8 +23,6 @@ var lng = 0
 var user_marker = L.marker([lat, lng]).addTo(map)
 console.log(user_marker);
 
-
-
 map.on('click', function(e) {
   lat = e.latlng.lat
   lng = e.latlng.lng
