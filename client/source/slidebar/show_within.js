@@ -1,7 +1,6 @@
 require('handlebars');
 var render_it = require('./handlebars_content')
 var get_type = require('./../map/get_title')
-var render_vis = require('./../vis/vis')
 var users_own = require('./main_menu')
 
 
@@ -17,7 +16,6 @@ function bar_ready(){
   $('#reportform').hide()
   $("#reportsubmit").hide()
   $("#viewsubmit").hide()
-
   $('#communityposts').hide()
 
   users_own()
@@ -26,9 +24,9 @@ function bar_ready(){
 
 bar_ready()
 
-function make_reports(data){
-  render_it(data)
-}
+// function make_reports(data){ // not being called? but not sure
+//   render_it(data)
+// }
 
 function sessionCheck(){
     return $.get("api/v1/session_check")
@@ -48,19 +46,7 @@ function sideBarMenu(loggedIn){
     $('#viewform').hide()
     $("#reportsubmit").hide()
     $('#communityposts').hide()
-  })
-
-  $("#view-button").click(function(){
-    $('#reportform').hide()
-    $('#viewform').show()
-    $("#viewsubmit").hide()
-    $('#communityposts').hide()
-  })
-
-  $("#community-posts-button").click(function(){
-    $('#communityposts').show()
-    $('#viewform').hide()
-    $('#reportform').hide()
+    $('#example-template').hide()
   })
 
 }
@@ -74,17 +60,4 @@ $(document).ready(function(){
 })
 
 
-  $("#vis-button").click(function(){
-    $("#vis").html('')
-    $("#map").hide()
-    $("#vis").show()
-    $("#vis-button").hide
-    render_vis()
-  })
-
-  $("#map-button").click(function(){
-    $("#vis").hide()
-    $("#map").show()
-    $("#map-button").hide
-  })
 

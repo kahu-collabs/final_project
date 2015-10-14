@@ -1,10 +1,12 @@
 require('handlebars');
+require('./source/slidebar/button_handlers')
 var render_it = require('./source/slidebar/handlebars_content')
 var makeObjects = require('./source/map/make_objects')
 var filter = require('./source/map/filter')
 var dat_nearby = require('./source/slidebar/show_within')
 var suburb = require('./source/map/geocode')
 var ajax = require('./source/ajax')
+var users_own = require('./source/slidebar/main_menu')
 
 
 
@@ -32,6 +34,8 @@ $('#reportform').submit(function(event){
 	var to_db = {category_type: parseInt(event.target[0].value), description: event.target[1].value, date: event.target[2].value, suburb_id: parseInt(event.target[3].value), happened_before: event.target[4].checked, lat: lat, lng: lng };
   ajax.submitCrime(to_db, map, myLayer);
 	ajax.dat_get(map, myLayer);
+  $('#reportform').hide()
+  users_own()
 })
 
 $('#viewform').submit(function(event){
