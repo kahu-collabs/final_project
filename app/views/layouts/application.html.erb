@@ -1,141 +1,144 @@
 <html>
-  <head>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
-     <link href="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.css" type="text/css" rel="stylesheet" />
-    <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-    <title>Batmap</title>
-    <meta name="description" content="Batmap">
-    <meta name="author" content="EDA Kahu-2015">
-    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.js"></script>
-    <%= csrf_meta_tags %>
-    <script id="example-template" type="text/x-handlebars-template">
-      {{#each these}}
-      <div class="report-cards">
-        <div class="entry">
-          <h1>{{this.properties.title}}</h1>
-          <div class="body">
-            {{this.properties.description}}
-            {{this.properties.date}}
-          </div>
-        </div>
-      </div>
-      {{/each}}
-    </script>
-  </head>
-  <body>
-    <a id="simple-menu" href="#sidr">Toggle menu</a>
-    <div id="sidr">
-      <div id="buttonsmenu">
-        <button id="report-button">Report</button>
-        <button id="view-button">View</button>
-        <button id="map-button">Map</button>
-        <button id="vis-button">Vis</button>
-        <button id="community-posts-button">Community posts</button>
-      </div>
-      <button id="fb-login">Login with facebook</button>
-      <form id="reportform">
-        <label for="crime">What sort of incident are you reporting?</label>
-        <select name="incident" id="incident">
-          <option value="1">Assault/harrassment</option>
-          <option value="2">Vandalism or criminal damage</option>
-          <option value="3">Car theft</option>
-          <option value="4">Car break-in</option>
-          <option value="5">House burglary</option>
-          <option value="6">Other</option>
-        </select><br></br>
-        <label for="description">Details of the incident; what time it occurred, what was taken or damaged, and anything else you noticed</label>
-        <input type="text-area" rows="6" name="" id="description"><br></br>
-        <label for="date">On what date did the incident occur?</label>
-        <input type="date" name="" id="date"><br></br>
-        <br></br>
-        <input type="checkbox" name="" id="happened_before"> This has happened before<br></br>
-        <p>Click the map where you would like to drop your pin</p>
-        <input type="submit" class="submit_button" value="Submit" id="reportsubmit">
-      </form>
-      <form id="viewform">
-        <label for="description">View all incidents within a</label>
-        <input type="number" name="" id="radius">
-        <label for="description">km radius of your pin drop</label>
-        <input type="submit" class="submit_button" value="Submit" id="viewsubmit">
-      </form>
-      <form id="communityposts">
-        <label for="suburb">What suburb do you want to post to?</label>
-        <select name="suburb_id" id="suburb">
-          <option value="1">Aro Valley</option>
-          <option value="2">Berhampore</option>
-          <option value="3">Breaker Bay</option>
-          <option value="4">Brooklyn</option>
-          <option value="5">Churton Park</option>
-          <option value="6">Crofton Downs</option>
-          <option value="7">Glenside</option>
-          <option value="8">Grenada North</option>
-          <option value="9">Happy Valley</option>
-          <option value="10">Hataitai</option>
-          <option value="11">Horokiwi</option>
-          <option value="12">Houghton Bay</option>
-          <option value="13">Island Bay</option>
-          <option value="14">Johnsonville</option>
-          <option value="15">Kaiwharawhara</option>
-          <option value="16">Kelburn</option>
-          <option value="17">Khandallah</option>
-          <option value="18">Kilbirnie</option>
-          <option value="19">Linden</option>
-          <option value="20">Lyall Bay</option>
-          <option value="21">Makara</option>
-          <option value="22">Miramar</option>
-          <option value="23">Mornington</option>
-          <option value="24">Mount Cook</option>
-          <option value="25">Mount Victoria</option>
-          <option value="26">Newlands</option>
-          <option value="27">Ngaio</option>
-          <option value="28">Ngauranga</option>
-          <option value="29">Ohariu</option>
-          <option value="30">Oriental Bay</option>
-          <option value="31">Owhiro Bay</option>
-          <option value="32">Paparangi</option>
-          <option value="33">Redwood</option>
-          <option value="34">Rongotai</option>
-          <option value="35">Roseneath</option>
-          <option value="36">Seatoun</option>
-          <option value="37">Shelly Bay</option>
-          <option value="38">Strathmore Park</option>
-          <option value="39">Tawa</option>
-          <option value="40">Te Aro</option>
-          <option value="41"></option>
-          <option value="42">Wadestown</option>
-          <option value="43">Wellington Central</option>
-          <option value="44">Wilton</option>
-          <option value="45">Worser Bay</option>
-        </select><br>
-        <textarea rows="6" name="body" id="postbody"></textarea>
-        <input type="submit" class="submit_button" value="Submit" id="postsubmit">
-      </form>
-      <div id="posts"></div>
-      <div id="reports">
-        <div id="report-cards">
-        </div>
+<head>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+  <title>Batmap</title>
+  <meta name="description" content="Batmap">
+  <meta name="author" content="EDA Kahu-2015">
+  <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.js"></script>
+  <%= csrf_meta_tags %>
+  <script id="example-template" type="text/x-handlebars-template">
+  {{#each these}}
+  <div class="report-cards">
+  <div class="entry">
+  <h1>{{this.properties.title}}</h1>
+  <div class="body">
+  {{this.properties.description}}
+  {{this.properties.date}}
+  </div>
+  </div>
+  </div>
+  {{/each}}
+  </script>
+</head>
+<body>
+  <a id="simple-menu" href="#sidr">Toggle menu</a>
+  <div id="sidr">
+    <div id="buttonsmenu">
+      <button id="report-button">Report</button>
+      <button id="view-button">View</button>
+      <button id="map-button">Map</button>
+      <button id="vis-button">Vis</button>
+      <button id="community-posts-button">Community posts</button>
+    </div>
+    <button id="fb-login">Login with facebook</button>
+    <form id="reportform">
+      <label for="crime">What sort of incident are you reporting?</label>
+      <select name="incident" id="incident">
+        <option value="1">Assault/harrassment</option>
+        <option value="2">Vandalism or criminal damage</option>
+        <option value="3">Car theft</option>
+        <option value="4">Car break-in</option>
+        <option value="5">House burglary</option>
+        <option value="6">Other</option>
+      </select><br></br>
+      <label for="description">Details of the incident; what time it occurred, what was taken or damaged, and anything else you noticed</label>
+      <input type="text-area" rows="6" name="" id="description"><br></br>
+      <label for="date">On what date did the incident occur?</label>
+      <input type="date" name="" id="date"><br></br>
+      <br></br>
+      <input type="checkbox" name="" id="happened_before"> This has happened before<br></br>
+      <p>Click the map where you would like to drop your pin</p>
+      <input type="submit" class="submit_button" value="Submit" id="reportsubmit">
+    </form>
+    <form id="viewform">
+      <label for="description">View all incidents within a</label>
+      <input type="number" name="" id="radius">
+      <label for="description">km radius of your pin drop</label>
+      <input type="submit" class="submit_button" value="Submit" id="viewsubmit">
+    </form>
+    <form id="communityposts">
+      <label for="suburb">Pick a suburb to see the neighborhood noticeboard</label>
+      <select name="suburb_id" id="suburb">
+        <option value="1">Aro Valley</option>
+        <option value="2">Berhampore</option>
+        <option value="3">Breaker Bay</option>
+        <option value="4">Brooklyn</option>
+        <option value="5">Churton Park</option>
+        <option value="6">Crofton Downs</option>
+        <option value="7">Glenside</option>
+        <option value="8">Grenada North</option>
+        <option value="9">Happy Valley</option>
+        <option value="10">Hataitai</option>
+        <option value="11">Horokiwi</option>
+        <option value="12">Houghton Bay</option>
+        <option value="13">Island Bay</option>
+        <option value="14">Johnsonville</option>
+        <option value="15">Kaiwharawhara</option>
+        <option value="16">Kelburn</option>
+        <option value="17">Khandallah</option>
+        <option value="18">Kilbirnie</option>
+        <option value="19">Linden</option>
+        <option value="20">Lyall Bay</option>
+        <option value="21">Makara</option>
+        <option value="22">Miramar</option>
+        <option value="23">Mornington</option>
+        <option value="24">Mount Cook</option>
+        <option value="25">Mount Victoria</option>
+        <option value="26">Newlands</option>
+        <option value="27">Ngaio</option>
+        <option value="28">Ngauranga</option>
+        <option value="29">Ohariu</option>
+        <option value="30">Oriental Bay</option>
+        <option value="31">Owhiro Bay</option>
+        <option value="32">Paparangi</option>
+        <option value="33">Redwood</option>
+        <option value="34">Rongotai</option>
+        <option value="35">Roseneath</option>
+        <option value="36">Seatoun</option>
+        <option value="37">Shelly Bay</option>
+        <option value="38">Strathmore Park</option>
+        <option value="39">Tawa</option>
+        <option value="40">Te Aro</option>
+        <option value="41"></option>
+        <option value="42">Wadestown</option>
+        <option value="43">Wellington Central</option>
+        <option value="44">Wilton</option>
+        <option value="45">Worser Bay</option>
+      </select><br>
+      <input type="submit" class="submit_button" id="suburbsubmit">
+      <textarea rows="6" name="body" id="postbody"></textarea>
+      <input type="submit" class="submit_button" value="Submit" id="postsubmit">
+    </form>
+    <div id="posts"></div>
+    <div id="reports">
+      <div id="report-cards">
       </div>
     </div>
-    <nav>
-      <% if current_user %>
-        Signed in
-        <%= link_to 'Sign Out', '/sign_out', method: :delete %>
-      <% else %>
-        <%= link_to 'Login', '/auth/facebook' %>
-      <% end %>
-    </nav>
-    <%= yield %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <script src="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-    <script>
-      $(document).ready(function() {
-        $('#simple-menu').sidr();
-      });
-    </script>
-  </body>
+  </div>
+  <nav>
+    <% if current_user %>
+    Signed in
+    <%= link_to 'Sign Out', '/sign_out', method: :delete %>
+    <% else %>
+    <%= link_to 'Login', '/auth/facebook' %>
+    <% end %>
+  </nav>
+  <%= yield %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <script src="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+  $(document).ready(function() {
+    $('#simple-menu').sidr();
+  });
+  </script>
+</body>
 </html>
 

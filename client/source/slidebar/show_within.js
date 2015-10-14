@@ -38,7 +38,7 @@ function sideBarMenu(loggedIn){
     if (loggedIn) {
       $('#reportform').show()
       $('#fb-login').hide()
-    } else{
+    } else {
       $('#reportform').hide()
       $('#fb-login').show()
     }

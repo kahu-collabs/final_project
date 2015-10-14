@@ -9,9 +9,6 @@ var ajax = require('./source/ajax')
 var users_own = require('./source/slidebar/main_menu')
 
 
-
-
-
 L.mapbox.accessToken = 'pk.eyJ1IjoicGV0dHljcmltZSIsImEiOiJjaWY0cTBoZDgwbXl0c2RtN2ZjYzhicjZoIn0.FDjxXktw-rA-U-qobjyNxQ';
 var map = L.mapbox.map(document.getElementById('map'), 'mapbox.streets')
   .addControl(L.mapbox.geocoderControl('mapbox.places'))
@@ -21,22 +18,6 @@ var lat = 0
 var lng = 0
 var user_marker = L.marker([lat, lng]).addTo(map)
 console.log(user_marker);
-
-var markers = new L.MarkerClusterGroup();
-
-    for (var i = 0; i < addressPoints.length; i++) {
-        var a = addressPoints[i];
-        var title = a[2];
-        var marker = L.marker(new L.LatLng(a[0], a[1]), {
-            icon: L.mapbox.marker.icon({'marker-symbol': 'post', 'marker-color': '0044FF'}),
-            title: title
-        });
-        marker.bindPopup(title);
-        markers.addLayer(marker);
-    }
-
-    map.addLayer(markers);
-
 
 
 map.on('click', function(e) {
