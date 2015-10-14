@@ -28,6 +28,21 @@
           </div>
         </div>
       </a>
+
+      <% if current_user %>
+      <% img = '<div id="fb-icon-photo">
+                <img src="https://graph.facebook.com/v2.5/' + User.find_by_id(current_user.id).uid + '/picture" height="70" alt="facebook login"/>
+                </div>'  %>
+        <%= link_to img.html_safe, '/sign_out', method: :delete %>
+      <% else %>
+
+        <%= link_to '<div id="fb-icon-circle">
+                      <div id="fb-icon">
+                        <img src="http://kitsartgallery.com/images/facebook-white-f.png" height="70" alt="facebook login" />
+                      </div>
+                    </div>'.html_safe, '/auth/facebook' %>
+      <% end %>
+
     </nav>
 
     <div id="sidr">
@@ -142,14 +157,8 @@
 
 
 <%= yield %>
-<nav>
-  <% if current_user %>
-  Signed in
-  <%= link_to 'Sign Out', '/sign_out', method: :delete %>
-  <% else %>
-  <%= link_to 'Login', '/auth/facebook' %>
-  <% end %>
-</nav>
+
+
 <%= stylesheet_link_tag    'application', media: 'all' %>
 <%= javascript_include_tag 'application' %>
 <script src="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
