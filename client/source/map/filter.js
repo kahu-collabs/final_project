@@ -4,11 +4,10 @@ var each = require("lodash.foreach")
 
 module.exports = function(map, layer) {
   var filters = document.getElementById("filters");
-  filters.innerHTML = "";
-
-  var typesObj = {}, types = [];
+  var typesObj = {}
   var features = layer.getGeoJSON();
   var checkboxes = []
+  filters.innerHTML = "";
 
   features.forEach(function(feature) {
     typesObj[feature.properties.title] = true
