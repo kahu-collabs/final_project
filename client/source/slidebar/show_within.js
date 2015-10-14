@@ -73,17 +73,17 @@ $(document).ready(function() {
 
 $("#vis-button").click(function() {
   $("#vis").html('')
-  $("#map").hide()
+  // $("#map").hide()
   $("#vis").show()
   $("#vis-button").hide
   renderVis()
 })
 
 
-$("#map-button").click(function() {
-  $("#vis").hide()
-  $("#map").show()
-  $("#map-button").hide()
-})
+// $("#map-button").click(function() {
+//   $("#vis").hide()
+//   $("#map").show()
+//   $("#map-button").hide()
+// })
 
 

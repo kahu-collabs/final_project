@@ -8,8 +8,8 @@ module.exports = function() {
       bottom: 20,
       left: 20
     },
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 300 - margin.left - margin.right,
+    height = 150 - margin.top - margin.bottom;
 
   // Important, each row is one "signal"
   var data = dataMaker()
