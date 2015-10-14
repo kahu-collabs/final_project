@@ -15,19 +15,29 @@
 
   </head>
   <body>
-    <a id="simple-menu" href="#sidr">Toggle menu</a>
+    <nav>
+      <a id="simple-menu" href="#sidr">
+        <div id="nav-icon-circle">
+          <div id="nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </a>
+    </nav>
+
     <div id="sidr">
       <div id="buttonsmenu">
         <button id="report-button">Report</button>
         <button id="view-button">View</button>
-
         <button id="my-reports">My Reports</button>
-
         <button id="map-button">Map</button>
         <button id="vis-button">Vis</button>
-
         <button id="community-posts-button">Community posts</button>
-
       </div>
 
       <button id="fb-login">Login with facebook</button>
@@ -113,28 +123,25 @@
     <textarea rows="6" name="body" id="postbody"></textarea>
     <input type="submit" class="submit_button" value="Submit" id="postsubmit">
 
-  </form>
-  <div id="posts"></div>
+    </form>
+    <div id="posts"></div>
 
 
-<script id="example-template" type="text/x-handlebars-template">
-  {{#each these}}
-  <div class="entry">
-    <h1>{{this.properties.title}}</h1>
-    <div class="body">
-      {{this.properties.description}}
-
-      {{this.properties.date}}
-
+  <script id="example-template" type="text/x-handlebars-template">
+    {{#each these}}
+    <div class="entry">
+      <h1>{{this.properties.title}}</h1>
+      <div class="body">
+        {{this.properties.description}}
+        {{this.properties.date}}
+      </div>
     </div>
-  </div>
-  {{/each}}
-</script>
-
-
+    {{/each}}
+  </script>
 </div>
 
 
+<%= yield %>
 <nav>
   <% if current_user %>
   Signed in
@@ -143,13 +150,21 @@
   <%= link_to 'Login', '/auth/facebook' %>
   <% end %>
 </nav>
-<%= yield %>
 <%= stylesheet_link_tag    'application', media: 'all' %>
 <%= javascript_include_tag 'application' %>
 <script src="http://cdn.rawgit.com/noelboss/featherlight/1.3.4/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 <script>
   $(document).ready(function() {
     $('#simple-menu').sidr();
+  });
+</script>
+
+<!-- nav-icon JS-->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#nav-icon').click(function(){
+      $(this).toggleClass('open');
+    });
   });
 </script>
 
