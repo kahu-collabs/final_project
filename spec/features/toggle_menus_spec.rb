@@ -15,7 +15,7 @@ RSpec.feature "ToggleMenus", type: :feature, js: true do
 		it 'Displays the submit button after clicking on the map' do
 			visit root_path
 			click_on 'Toggle menu'
-			click_on 'View'
+			click_on 'Home'
 			fill_in 'radius', with: '2'
 			expect(page).not_to have_content('Submit')
 			find('#map').click
