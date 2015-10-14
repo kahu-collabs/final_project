@@ -1,10 +1,10 @@
-var clone = require('lodash.clone')
+var clone = require("lodash.clone")
 // make_objects can be re-written and is more readable as a 'typeMap'
-var typeMap = require('./type-map')
+var typeMap = require("./type-map")
 var crimePrototype = {
   "type": "Feature",
   "geometry": {
-    "type": "Point",
+    "type": "Point"
   },
   "properties": {}
 }
@@ -14,7 +14,7 @@ module.exports = function(rawData) {
   return rawData.map(function(item) {
     // console.log(item)
     // if your function returns use a .map rather than creating an array then pushing into it.
-    var category = parseInt(item.category_type)
+    var category = parseInt(item.category_type, 10)
     var type = typeMap[category]
     var crimeObj = clone(crimePrototype, true)
     crimeObj.geometry.coordinates = [

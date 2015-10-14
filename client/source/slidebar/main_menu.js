@@ -1,15 +1,15 @@
-require('handlebars');
 var printUserReports = require('./handlebars_content')
+require('handlebars');
 
-module.exports = function(){
+function pinData(data) {
+	printUserReports(data)
+}
+
+
+module.exports = function() {
   $.get("http://localhost:3000/api/v1/user_reports", pinData)
+
 }
-
-function pinData(data){
-  printUserReports(data)
-}
-
-
 
 function renderPosts(data) {
   postsHtml = ''

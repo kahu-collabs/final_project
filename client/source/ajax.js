@@ -1,18 +1,18 @@
 var makeObjects = require('./map/make_objects')
-var render = require ('./map/render')
+var render = require('./map/render')
 var filter = require('./map/filter')
 
 
-function dat_get(map, myLayer){
+function dat_get(map, myLayer) {
   $.get( "api/v1/reports", function( data ) {
-      $( ".result" ).html( data );
-      var renderObjects = makeObjects(data)
-      render.renderPins(renderObjects, myLayer);
-      filter(map, myLayer)
+    var renderObjects = makeObjects(data)
+    $( ".result" ).html( data );
+    render.renderPins(renderObjects, myLayer);
+    filter(map, myLayer)
   });
 }
 
-function submitCrime(input, map, myLayer){
+function submitCrime(input, map, myLayer) {
   $.ajax({
     type: "POST",
     url: "api/v1/reports",
@@ -22,7 +22,7 @@ function submitCrime(input, map, myLayer){
   });
 }
 
-function submitPost(input){
+function submitPost(input) {
   $.ajax({
     type: "POST",
     url: "api/v1/messages",
@@ -40,8 +40,8 @@ function getPosts(id) {
 }
 
 module.exports = {
-dat_get: dat_get,
-submitCrime: submitCrime,
-submitPost: submitPost,
-getPosts: getPosts
+  dat_get: dat_get,
+  submitCrime: submitCrime,
+  submitPost: submitPost,
+  getPosts: getPosts
 }
