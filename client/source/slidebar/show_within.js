@@ -1,48 +1,42 @@
+var renderIt = require('./handlebars_content')
+var getType = require('./../map/get_title')
+var renderVis = require('./../vis/vis')
+var usersOwn = require('./main_menu')
 require('handlebars');
-var render_it = require('./handlebars_content')
-var get_type = require('./../map/get_title')
 
-var render_vis = require('./../vis/vis')
-
-var users_own = require('./main_menu')
-
-
-module.exports = function (radius, lat, lng){
-  $.get( "api/v1/nearby",  {within: radius, origin: [lat, lng]}, function( data ) {
-      $( ".results" ).html( data );
-  make_reports(data)
+module.exports = function(radius, lat, lng) {
+  $.get( "api/v1/nearby", {within: radius, origin: [lat, lng]}, function( data ) {
+    $( ".results" ).html( data );
+    make_reports(data)
   });
 }
 
-function bar_ready(){
+function bar_ready() {
   $('#viewform').hide()
   $('#reportform').hide()
   $("#reportsubmit").hide()
   $("#viewsubmit").hide()
-
   $('#communityposts').hide()
-
-  users_own()
-
+  usersOwn()
 }
 
 bar_ready()
 
-function make_reports(data){
-  render_it(data)
+function make_reports(data) {
+  renderIt(data)
 }
 
-function sessionCheck(){
-    return $.get("api/v1/session_check")
-  }
+function sessionCheck() {
+  return $.get("api/v1/session_check")
+}
 
-function sideBarMenu(loggedIn){
+function sideBarMenu(loggedIn) {
   $('#fb-login').hide()
-  $("#report-button").click(function(){
+  $("#report-button").click(function() {
     if (loggedIn) {
       $('#reportform').show()
       $('#fb-login').hide()
-    } else{
+    } else {
       $('#reportform').hide()
       $('#fb-login').show()
     }
@@ -52,41 +46,39 @@ function sideBarMenu(loggedIn){
     $('#communityposts').hide()
   })
 
-  $("#view-button").click(function(){
+  $("#view-button").click(function() {
     $('#reportform').hide()
     $('#viewform').show()
     $("#viewsubmit").hide()
     $('#communityposts').hide()
   })
 
-  $("#community-posts-button").click(function(){
+  $("#community-posts-button").click(function() {
     $('#communityposts').show()
     $('#viewform').hide()
     $('#reportform').hide()
   })
-
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
   sessionCheck()
   .then(function(data){
     return data.logged_in
-    })
+  })
   .then(sideBarMenu)
 })
 
+$("#vis-button").click(function() {
+  $("#vis").html('')
+  $("#map").hide()
+  $("#vis").show()
+  $("#vis-button").hide
+  renderVis()
+})
 
-  $("#vis-button").click(function(){
-    $("#vis").html('')
-    $("#map").hide()
-    $("#vis").show()
-    $("#vis-button").hide
-    render_vis()
-  })
-
-  $("#map-button").click(function(){
-    $("#vis").hide()
-    $("#map").show()
-    $("#map-button").hide
-  })
+$("#map-button").click(function() {
+  $("#vis").hide()
+  $("#map").show()
+  $("#map-button").hide()
+})
 

@@ -1,6 +1,6 @@
+var makeObjectsToRender = require("./../map/make_objects")
 require('handlebars');
 
-var makeObjectsToRender = require("./../map/make_objects")
 
 module.exports = function(dataIn) {
   var objects = makeObjectsToRender(dataIn)
