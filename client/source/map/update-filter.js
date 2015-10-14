@@ -1,4 +1,4 @@
-module.exports = function(layer, checkboxes){
+module.exports = function(layer, checkboxes) {
   return function() {
     var enabled = {};
 
@@ -7,7 +7,7 @@ module.exports = function(layer, checkboxes){
     }
 
     layer.setFilter(function(feature) {
-      return (feature.properties['title'] in enabled);
+      return (feature.properties.title in enabled);
     });
   }
 }

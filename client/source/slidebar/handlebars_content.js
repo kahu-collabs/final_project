@@ -1,9 +1,9 @@
+var makeObjectsToRender = require("./../map/make_objects")
 require('handlebars');
 
-var make_objects_to_render = require("./../map/make_objects")
 
-module.exports = function (data_in) {
-  var objects = make_objects_to_render(data_in)
+module.exports = function(dataIn) {
+  var objects = makeObjectsToRender(dataIn)
   var theTemplateScript = $("#example-template").html();
   var theTemplate = Handlebars.compile(theTemplateScript);
   var context = {these: objects}
