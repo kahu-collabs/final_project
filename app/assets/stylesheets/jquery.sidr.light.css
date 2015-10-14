@@ -49,8 +49,6 @@
 
 .sidr input[type=button]:hover,.sidr input[type=submit]:hover{background:rgba(51,51,51,0.9)}
 
-.btn.btn-default.btn-xs {
-  margin: 2px;
 }
 
 .sidr {
