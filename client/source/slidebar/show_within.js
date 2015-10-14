@@ -8,7 +8,7 @@ require('handlebars');
 module.exports = function(radius, lat, lng) {
   $.get( "api/v1/nearby", {within: radius, origin: [lat, lng]}, function( data ) {
     $( ".results" ).html( data );
-    make_reports(data)
+    renderIt(data)
   });
 }
 
@@ -24,9 +24,7 @@ function bar_ready() {
 bar_ready()
 
 
-function make_reports(data) {
-  renderIt(data)
-}
+
 
 function sessionCheck() {
   return $.get("api/v1/session_check")
@@ -73,17 +71,12 @@ $(document).ready(function() {
 
 $("#vis-button").click(function() {
   $("#vis").html('')
-  // $("#map").hide()
   $("#vis").show()
   $("#vis-button").hide
   renderVis()
 })
 
 
-// $("#map-button").click(function() {
-//   $("#vis").hide()
-//   $("#map").show()
-//   $("#map-button").hide()
-// })
+
 
 

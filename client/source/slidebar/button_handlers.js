@@ -6,6 +6,7 @@ var ajax = require('./../ajax')
     $('#viewform').show()
     $("#viewsubmit").hide()
     $('#communityposts').hide()
+    $("#reports").hide()
     $('.report-cards').show()
   })
 
@@ -13,12 +14,11 @@ var ajax = require('./../ajax')
     $('#communityposts').show()
     $('#viewform').hide()
     $('#reportform').hide()
-    $('.report-cards').hide()
+    $('#reports').hide()
   })
 
   $("#vis-button").click(function(){
     $("#vis").toggle( 'slow' )
-    // render_vis()
   })
 
   $("#map-button").click(function(){
@@ -27,7 +27,7 @@ var ajax = require('./../ajax')
     $("#map-button").hide
   })
 
-  $('suburbsubmit').submit(function(e){
-    ajax.getPosts(event.target[0].value)
-    // still getting something odd here!
+  $('#suburbsubmit').submit(function(e){
+    ajax.getPosts(event.target[2].value)
+    $("#reports").hide()
   })
