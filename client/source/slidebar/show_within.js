@@ -4,6 +4,7 @@ var renderVis = require('./../vis/vis')
 var usersOwn = require('./main_menu')
 require('handlebars');
 
+
 module.exports = function(radius, lat, lng) {
   $.get( "api/v1/nearby", {within: radius, origin: [lat, lng]}, function( data ) {
     $( ".results" ).html( data );
@@ -21,6 +22,7 @@ function bar_ready() {
 }
 
 bar_ready()
+
 
 function make_reports(data) {
   renderIt(data)
@@ -44,6 +46,7 @@ function sideBarMenu(loggedIn) {
     $('#viewform').hide()
     $("#reportsubmit").hide()
     $('#communityposts').hide()
+    $('#example-template').hide()
   })
 
   $("#view-button").click(function() {
@@ -76,9 +79,11 @@ $("#vis-button").click(function() {
   renderVis()
 })
 
+
 $("#map-button").click(function() {
   $("#vis").hide()
   $("#map").show()
   $("#map-button").hide()
 })
+
 
