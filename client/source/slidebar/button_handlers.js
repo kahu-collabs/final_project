@@ -17,11 +17,8 @@ var ajax = require('./../ajax')
   })
 
   $("#vis-button").click(function(){
-    $("#vis").html('')
-    $("#map").hide()
-    $("#vis").show()
-    $("#vis-button").hide
-    render_vis()
+    $("#vis").toggle( 'slow' )
+    // render_vis()
   })
 
   $("#map-button").click(function(){

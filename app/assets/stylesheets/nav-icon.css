@@ -108,13 +108,14 @@
   top: 29px;
 }
 
+
 #fb-icon-circle {
   background-color: #3b5998;
   width:70px;
   height: 70px;
   padding:10px;
   border-radius: 50px;
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 50px;
   z-index: 999;
@@ -129,4 +130,5 @@
   right: 50px;
   z-index: 999;
 }
+
 
