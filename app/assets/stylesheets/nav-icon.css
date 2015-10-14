@@ -131,4 +131,13 @@
   z-index: 999;
 }
 
+#fb-login {
+  color: #FFFFFF;
+  width: 360px;
+  height: 30px ;
+  margin: 5px 10px;
+  background-color: #3b5998;
+  cursor: pointer;
+}
+
 
