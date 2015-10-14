@@ -48,14 +48,16 @@ $('#reportform').submit(function(event) {
 
 $('#viewform').submit(function(event){
   event.preventDefault();
+  $("#reports").html('')
+  $("#reports").show()
   radius = event.target[0].value
   dat_nearby(radius, lat, lng)
 })
 
 $('#communityposts').submit(function(event){
   event.preventDefault()
-  var to_db = {suburb_id: parseInt(event.target[0].value, 10), body: event.target[1].value}
+  var to_db = {suburb_id: parseInt(event.target[0].value, 10), body: event.target[2].value}
   ajax.submitPost(to_db)
-  event.target[1].value = ''
+  event.target[2].value = ''
   ajax.getPosts(event.target[0].value)
 })

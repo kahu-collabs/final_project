@@ -48,11 +48,9 @@
       <div id="buttonsmenu">
         <div id="center-me">
           <button id="report-button" class="btn">Report</button>
-          <button id="view-button" class="btn">View</button>
-          <button id="my-reports" class="btn">My Reports</button>
-          <button id="map-button" class="btn">Map</button>
-          <button id="vis-button" class="btn">Vis</button>
+          <button id="view-button" class="btn">Filter</button>
           <button id="community-posts-button" class="btn">Noticeboards</button>
+          <button id="vis-button" class="btn">Vis</button>
       </div>
       </div>
 
@@ -87,12 +85,13 @@
   <form id="viewform" "bar-form">
     <label for="description">View all incidents within a</label>
     <input type="number" name="" id="radius">
+     <label for="description">kilometer radius of your pin drop</label>
     <input type="submit" class="submit_button" value="Submit" id="viewsubmit">
   </form>
 
 
   <form id="communityposts" "bar-form">
-    <label for="suburb">What suburb do you want to post to?</label>
+    <label for="suburb">Suburbs</label>
     <select name="suburb_id" id="suburb">
       <option value="1">Aro Valley</option>
       <option value="2">Berhampore</option>
@@ -140,19 +139,20 @@
       <option value="44">Wilton</option>
       <option value="45">Worser Bay</option>
     </select><br>
+      <input type="submit" class="submit_button" value="View notices" id="suburbsubmit">
     <textarea rows="6" name="body" id="postbody"></textarea>
     <input type="submit" class="submit_button" value="Submit" id="postsubmit">
 
     </form>
     <div id="posts" "bar-form"></div>
 
-
+<div id="reports"></div>
   <script id="example-template" type="text/x-handlebars-template">
     {{#each these}}
     <div class="entry">
       <h1>{{this.properties.title}}</h1>
       <div class="body">
-        {{this.properties.description}}
+        {{this.properties.description}}<br>
         {{this.properties.date}}
       </div>
     </div>

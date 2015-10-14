@@ -15,7 +15,7 @@ function renderPosts(data) {
   postsHtml = ''
   rev_data = data.reverse()
   rev_data.map(function(post) {
-    postsHtml += '<div class="post">Created at:'+post.created_at+' by '+post.user_id+'<br><p>'+post.body+'</p></div>'
+    postsHtml += '<div class="post">Created at:'+post.created_at+'<br><p>'+post.body+'</p></div>'
   })
   return postsHtml
 }
