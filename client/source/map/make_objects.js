@@ -26,8 +26,6 @@ module.exports = function(rawData) {
     crimeObj.properties.title = type.title
     crimeObj.properties.description = item.description
     crimeObj.properties["marker-color"] = type.marker_colour
-    crimeObj.properties["marker-size"] =
-    // console.log(crimeObj)
     return crimeObj
   })
 }
