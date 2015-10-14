@@ -43,8 +43,6 @@ ActiveRecord::Schema.define(version: 20151012035725) do
     t.datetime "time_2"
   end
 
-  add_index "reports", ["suburb_id"], name: "index_reports_on_suburb_id", using: :btree
-
   create_table "suburbs", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false

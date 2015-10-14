@@ -1,4 +1,5 @@
 var render_vis = require('./../vis/vis')
+var ajax = require('./../ajax')
 
   $("#view-button").click(function(){
     $('#reportform').hide()
@@ -29,4 +30,7 @@ var render_vis = require('./../vis/vis')
     $("#map-button").hide
   })
 
-
+  $('suburbsubmit').submit(function(e){
+    ajax.getPosts(event.target[0].value)
+    // still getting something odd here!
+  })

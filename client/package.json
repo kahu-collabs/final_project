@@ -6,6 +6,8 @@
   "scripts": {
     "test": "mocha tests",
     "tape": "browserify ./tests/*.js | tap-closer | smokestack | tap-spec",
+    "tape-ff": "browserify ./tests/*.js | tap-closer | smokestack -b firefox | tap-spec",
+
     "lint": "node_modules/.bin/eslint source/* index.js"
   },
   "repository": {
