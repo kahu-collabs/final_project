@@ -4,7 +4,7 @@ require('handlebars');
 
 
 module.exports = function (data_in) {
-  var object = make_objects_to_render(data_in)
+  var object = makeObjectsToRender (data_in)
   var reverseObject = object.reverse()
   var theTemplateScript = $("#example-template").html();
   var theTemplate = Handlebars.compile(theTemplateScript);
