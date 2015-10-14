@@ -4,10 +4,6 @@ module.exports=function(lat, lng){
   "json")
 }
 
-
-
-
-
 function successFunction(data) {
   var sub = data["results"][0]["address_components"][2]["short_name"]
   return sub_ids[sub]

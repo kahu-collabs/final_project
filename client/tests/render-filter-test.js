@@ -1,18 +1,17 @@
 var test = require('tape')
 var renderFilter = require('../source/map/render-filter')
 
+var expected = "Vandalism or criminal damage"
 
+var fakeData = 'Vandalism or criminal damage'
 
-// var expected =
+test('render filter returns expected out put ', function(t) {
 
+  renderFilter(fakeData, 'body')
 
-// var fakeData =
+  var actual = document.querySelector('div > input').id
 
-
-test('', function(t) {
-
-  var actual = renderFilter(fakeData)
+  t.equal(expected, actual, 'Pass!')
   t.end()
-
 
 })

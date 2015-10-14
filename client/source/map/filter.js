@@ -16,7 +16,7 @@ module.exports = function (map, layer) {
   })
 
   each(typesObj, function (key, type) {
-    var checkbox = renderFilter(type)
+    var checkbox = renderFilter(type, '#filters')
     checkboxes.push(checkbox)
 
   })
