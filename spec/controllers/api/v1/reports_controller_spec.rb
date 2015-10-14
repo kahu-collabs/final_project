@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::ReportsController, type: :controller do
 
 	let(:mock_current_user){
+    #this should use a factory girl create
 		user = User.new
 		user.id = 1
 		allow_any_instance_of(ApplicationController).to receive(:current_user).and_return (user)
@@ -11,6 +12,7 @@ RSpec.describe Api::V1::ReportsController, type: :controller do
 
 	describe "GET all reports" do
 		let!(:mock_all){
+      #this should return report objects not a hash
 			allow(Report).to receive(:all) {[{text:"meow"}]}
 		}
 
@@ -86,8 +88,6 @@ RSpec.describe Api::V1::ReportsController, type: :controller do
 			post_report
 			expect(response.status).to eq(403)
 		end
-
-
 	end
 
 	describe "DELETE a report" do
@@ -125,9 +125,4 @@ RSpec.describe Api::V1::ReportsController, type: :controller do
 			expect(response.status).to eq(403)
 		end
 	end
-
-
-
-
-
 end

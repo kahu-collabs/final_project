@@ -15,6 +15,7 @@ module OmniauthMacros
     })
   end
 
+  #looks like this isn't used
   def login (user=nil)
     user ||= User.find_or_create_by(name: 'Anna', uid: '12345', provider: 'facebook')
     @user = user

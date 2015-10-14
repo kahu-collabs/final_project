@@ -10,6 +10,7 @@ class Report < ActiveRecord::Base
   validates :description, presence: true
   validates :date, presence: true
 
+  #time1 and time2 are pretty non descriptive names
   def time_diff
     return ((time_2 - time_1) / 3600).round
   end

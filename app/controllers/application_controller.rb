@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
+    #possible refactor for when this is under test
+    #@current_user ||= User.find_by(id: session[:user_id])
     begin
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     rescue
