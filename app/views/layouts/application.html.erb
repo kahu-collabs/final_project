@@ -7,7 +7,7 @@
     <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <title>Birdseye</title>
-    <meta name="description" content="Batmap">
+    <meta name="description" content="Birdseye">
     <meta name="author" content="EDA Kahu-2015">
     <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.js"></script>
@@ -44,6 +44,9 @@
       <% end %>
 
     </nav>
+
+    <img src="/assets/birdseye2.png" id="logo">
+
     <div id="sidr">
       <div id="buttonsmenu">
         <div id="center-me">
@@ -58,6 +61,8 @@
       <br>
 
       <%= link_to '<button id="fb-login">Please login with Facebook to file a report</button>'.html_safe, '/auth/facebook' %>
+
+
 
       <form id="reportform" class="bar-form">
         <label for="crime">What sort of incident are you reporting?</label>

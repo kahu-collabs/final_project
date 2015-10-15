@@ -35,7 +35,8 @@ module.exports = function() {
   });
 
   var color = d3.scale.linear()
-    .range(["#0A3430", "#1E5846", "#3E7E56", "#6BA55F", "#A4CA64", "#E8ED69"]);
+    .range(["#6bd2db", "#0ea7b5", "#0c457d", "#ffbe4f", "#e8702a", "#fe6367"
+]);
 
   var x = d3.scale.linear()
     .range([0, width])
